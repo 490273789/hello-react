@@ -1,0 +1,64 @@
+.no-wrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bg-full {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+}
+
+.content_title {
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.App h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #845ec2;
+  margin-bottom: 10px;
+}
+
+.comment_part {
+  padding: 5px 0;
+  color: #2c86a2;
+  line-height: 20px;
+}
+
+.common_block {
+  border-bottom: 2px solid #00c9a7;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.common_button {
+  display: inline-block;
+  height: 20px;
+  padding: 5px 10px;
+  margin: 10px 10px 0 0;
+  line-height: 20px;
+  text-align: center;
+  color: #000;
+  border: 1px solid #6699ff;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+  background: linear-gradient(to right, #6699ff, #19bbcc) no-repeat;
+  background-size: 5% 100%;
+}
+.common_button:hover {
+  color: #fff;
+  background-size: 100% 100%;
+}
+.common_button:active {
+  background: linear-gradient(to right, #19bbcc, #6699ff) no-repeat;
+  background-size: 100% 100%;
+  border: 1px solid #82d0c1;
+}

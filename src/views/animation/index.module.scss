@@ -1,0 +1,11 @@
+.circle {
+  height: 100px;
+  width: 100px;
+  background: #99ff66;
+  border-radius: 50%;
+  transition: all 1.5s;
+}
+
+.active {
+  background: #ff6699;
+}
