@@ -39,10 +39,8 @@
 
 .common_button {
   display: inline-block;
-  height: 20px;
   padding: 5px 10px;
   margin: 10px 10px 0 0;
-  line-height: 20px;
   text-align: center;
   color: #000;
   border: 1px solid #6699ff;
@@ -52,6 +50,15 @@
   transition: all 0.2s;
   background: linear-gradient(to right, #6699ff, #19bbcc) no-repeat;
   background-size: 5% 100%;
+  &:hover {
+    color: #fff;
+    background-size: 100% 100%;
+  }
+  &:active {
+    background: linear-gradient(to right, #19bbcc, #6699ff) no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #82d0c1;
+  }
 }
 .common_button:hover {
   color: #fff;

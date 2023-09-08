@@ -151,8 +151,6 @@ export const useChildRoute = (path: string) => {
 };
 
 const route = handleFilterElement(routes);
-console.log(route);
-
 const finalRoutes = createBrowserRouter(route);
 
 export default finalRoutes;
