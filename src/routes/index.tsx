@@ -89,6 +89,11 @@ const routes: RouteObject[] = [
         path: '/hooks',
         element: 'hooks',
         meta: { title: 'hooks' }
+      },
+      {
+        path: '/use-callback',
+        element: 'hooks.useCallbackDemo',
+        meta: { title: 'useCallback' }
       }
     ]
   },

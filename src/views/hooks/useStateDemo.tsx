@@ -20,7 +20,6 @@ export default function UseStateDemo() {
     setAge((state) => state + 1);
     setAge((state) => state + 1);
   };
-
   return (
     <div className="pt-6">
       <Button onClick={increaseNumber}>点击改变number：{number}</Button>
@@ -30,3 +29,15 @@ export default function UseStateDemo() {
     </div>
   );
 }
+
+// const getInitRule = () => [{ id: 1, name: '默认规则' }];
+// const RuleList = () => {
+//   const [ruleList, setRuleList] = useState(getInitRule());
+//   return (
+//     <ul>
+//       {ruleList.map((item) => (
+//         <li key={item.id}>{item.name}</li>
+//       ))}
+//     </ul>
+//   );
+// };

@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 
-class This extends React.Component<any, any> {
+class This extends React.Component<unknown> {
   constructor(props: object) {
     super(props);
     console.log(props);

@@ -17,10 +17,10 @@ export default function Button({
     <button
       className={`inline-flex px-2 py-1.5 items-center min-w-[38px] min-h-[38px] ${
         variant === 'default'
-          ? 'border border-gray-600 rounded transition-all duration-200 bg-[length:0%_100%] hover:bg-[length:100%_100%] bg-no-repeat hover:text-gray-100 hover:bg-gradient-to-r from-gray-600 to-gray-400 active:from-gray-400 active:to-gray-600'
+          ? 'border border-[#6699ff] rounded transition-all duration-200 bg-[length:0%_100%] hover:bg-[length:100%_100%] bg-no-repeat hover:text-gray-100 hover:bg-gradient-to-r from-[#6699ff] to-[#19bbcc] active:from-[#19bbcc] active:to-[#6699ff]'
           : variant === 'outline'
-          ? 'hover:text-white underline'
-          : 'hover:text-white'
+            ? 'hover:text-white underline'
+            : 'hover:text-white'
       } ${className}`}
       {...props}
     >

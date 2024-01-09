@@ -5,7 +5,7 @@ interface StateMap {
   age: number;
   money: number;
 }
-export default class State extends React.Component<any, any> {
+export default class State extends React.Component<unknown, StateMap> {
   constructor(props: object) {
     super(props);
     this.state = {
