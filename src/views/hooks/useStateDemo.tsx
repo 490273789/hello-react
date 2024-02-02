@@ -1,9 +1,14 @@
-import Button from '@/components/Button';
 import { useState } from 'react';
+import Button from '@/components/Button';
+import useInterval from '@/hooks/useInterval';
 
 export default function UseStateDemo() {
   const [number, setNumber] = useState<number>(0);
   const [age, setAge] = useState<number>(0);
+  const test = () => {
+    console.log('test');
+  };
+  const cleanUp = useInterval(test, 2000);
 
   /** 直接改变转台 */
   const increaseNumber = () => {
@@ -25,6 +30,9 @@ export default function UseStateDemo() {
       <Button onClick={increaseNumber}>点击改变number：{number}</Button>
       <div className="common_button" onClick={increaseAge}>
         点击改变age：{age}
+      </div>
+      <div className="common_button" onClick={cleanUp}>
+        取消监听
       </div>
     </div>
   );

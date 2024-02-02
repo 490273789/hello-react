@@ -1,9 +1,9 @@
 import React from 'react';
 import { Suspense, lazy, ReactNode, useState, useEffect } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
-import Layout from '@/layout';
-import { isString } from '../utils/index';
 import Loading from '@components/Loading';
+import { isString } from '../utils/index';
+import Layout from '@/layout';
 
 export interface MetaProps {
   keepAlive?: boolean;

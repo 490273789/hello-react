@@ -1,5 +1,5 @@
-import style from '@/layout/index.module.scss';
 import { useNavigate } from 'react-router-dom';
+import style from '@/layout/index.module.scss';
 import { useChildRoute } from '@/routes';
 
 const Navigator = () => {

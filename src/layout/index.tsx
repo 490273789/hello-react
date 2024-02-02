@@ -1,6 +1,5 @@
-import style from './index.module.scss';
-import React from 'react';
 import { Outlet } from 'react-router-dom';
+import style from './index.module.scss';
 import Navigator from '@/layout/navigator';
 
 const Layout = () => {
