@@ -29,7 +29,7 @@ module.exports = {
     }
   },
   ignorePatterns: ['dist', 'node_modules'],
-  plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
+  plugins: ['react-refresh', '@typescript-eslint', 'prettier', 'import'],
 
   rules: {
     'prettier/prettier': 'error',

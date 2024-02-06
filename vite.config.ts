@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
 // import { browserslistToTargets } from 'lightningcss';
 import path from 'path';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
 // import browserslist from 'browserslist';
 
