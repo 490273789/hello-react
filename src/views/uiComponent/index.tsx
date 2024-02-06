@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Button from '@/components/Button';
-import Calendar, { CalendarRef } from '@/components/Calendar';
+import MiniCalendar, { CalendarRef } from '@/components/MiniCalendar';
 export default function UIComponent() {
   const calendarRef = useRef<CalendarRef>(null);
   const handleCalendarChange = (date: Date) => {
@@ -15,7 +15,7 @@ export default function UIComponent() {
   };
   return (
     <div>
-      <Calendar
+      <MiniCalendar
         ref={calendarRef}
         value={new Date()}
         onChange={handleCalendarChange}
