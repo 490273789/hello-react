@@ -94,6 +94,11 @@ const routes: RouteObject[] = [
         path: '/use-callback',
         element: 'hooks.useCallbackDemo',
         meta: { title: 'useCallback' }
+      },
+      {
+        path: '/ui-component',
+        element: 'uiComponent',
+        meta: { title: '自定义组件' }
       }
     ]
   },
