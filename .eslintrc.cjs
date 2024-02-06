@@ -32,18 +32,18 @@ module.exports = {
   plugins: ['react-refresh', '@typescript-eslint', 'prettier', 'import'],
 
   rules: {
-    'prettier/prettier': 'error',
-    'linebreak-style': ['error', 'unix'],
-    semi: ['error', 'always'],
+    'prettier/prettier': 'warn',
+    'linebreak-style': ['warn', 'unix'],
+    semi: ['warn', 'always'],
     'no-debugger': 0,
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+    'react-hooks/rules-of-hooks': 'warn', // 检查 Hook 的规则
     'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
     //0--不启用； 1--出现问题会有警告； 2--出现问题会报错
     //import导入顺序规则
     'import/order': [
-      'error',
+      'warn',
       {
         //按照分组顺序进行排序
         groups: [

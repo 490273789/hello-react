@@ -1,4 +1,6 @@
 import { useRef } from 'react';
+import Calendar from '@components/Calendar';
+import dayjs from 'dayjs';
 import Button from '@/components/Button';
 import MiniCalendar, { CalendarRef } from '@/components/MiniCalendar';
 export default function UIComponent() {
@@ -23,6 +25,10 @@ export default function UIComponent() {
 
       <Button onClick={getDate}>获取时间</Button>
       <Button onClick={setDate}>设置时间</Button>
+
+      <div className="p24">
+        <Calendar value={dayjs('2024-02-05')} />
+      </div>
     </div>
   );
 }

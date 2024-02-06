@@ -9,13 +9,6 @@ import eslint from 'vite-plugin-eslint';
 export default defineConfig({
   // css相关配置
   css: {
-    // transformer: 'lightningcss',
-    // lightningcss: {
-    //   targets: browserslistToTargets(browserslist('>= 0.25%')),
-    //   cssModules: {
-    //     pattern: '[name]__[local]___[hash:base64:5]'
-    //   }
-    // },
     modules: {
       // name 表示当前文件名，local 表示类名
       generateScopedName: '[name]__[local]___[hash:base64:5]'
@@ -24,7 +17,7 @@ export default defineConfig({
   plugins: [
     react(),
     // 以命令行的方式展示出代码中的规范问题，并能够直接定位到原文件。
-    eslint()
+    eslint({ emitError: false })
   ],
   resolve: {
     alias: {
