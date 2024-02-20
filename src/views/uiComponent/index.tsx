@@ -26,8 +26,21 @@ export default function UIComponent() {
       <Button onClick={getDate}>获取时间</Button>
       <Button onClick={setDate}>设置时间</Button>
 
+      {/* dateInnerContent={(value) => {
+            return (
+              <div>
+                <p style={{ background: 'yellowgreen', height: '30px' }}>
+                  {value.format('YYYY/MM/DD')}
+                </p>
+              </div>
+            );
+          }} */}
       <div className="p24">
-        <Calendar value={dayjs('2024-02-05')} />
+        <Calendar
+          value={dayjs('2024-02-18')}
+          className={'aaa'}
+          locale="en-US"
+        />
       </div>
     </div>
   );
