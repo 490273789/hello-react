@@ -99,6 +99,11 @@ const routes: RouteObject[] = [
         path: '/ui-component',
         element: 'uiComponent',
         meta: { title: '自定义组件' }
+      },
+      {
+        path: '/zustand',
+        element: 'zustand',
+        meta: { title: 'zustand' }
       }
     ]
   },
