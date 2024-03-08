@@ -1,9 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import cs from 'classnames';
 import style from '@/layout/index.module.scss';
 import { useChildRoute } from '@/routes';
 
 const Navigator = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const childRoute = useChildRoute('/');
 
   const switchRoute = (path: string) => {
@@ -14,7 +16,10 @@ const Navigator = () => {
       {childRoute.map((route) => {
         return (
           <div
-            className={style['nav-item']}
+            className={cs(
+              style['nav-item'],
+              location.pathname === route.path ? style.active : ''
+            )}
             key={route.path}
             onClick={() => switchRoute(route.path)}
           >

@@ -2,8 +2,8 @@ import useStore from '@/stores';
 
 const Zustand = () => {
   console.log(useStore);
-  const age = useStore((state) => state.age);
-  const setAge = useStore((state) => state.setAge);
+  const age = useStore((state: any) => state.age);
+  const setAge = useStore((state: any) => state.setAge);
 
   /** 监听状态的改变 */
   // useStore.subscribe((state) => {

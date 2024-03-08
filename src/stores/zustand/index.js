@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react';
+import { useSyncExternalStore, useState, useEffect } from 'react';
 import { useDebugValue } from 'react';
 
 /** 创建store */
@@ -61,9 +61,16 @@ const useStore = (api, selector) => {
   // return selector(api.getState());
 
   // react18的实现方法
-  const slice = useSyncExternalStore(api.subscribe, api.getState, selector);
-  useDebugValue(slice);
-  return slice;
+  // const slice = useSyncExternalStore(api.subscribe, api.getState, selector);
+  // useDebugValue(slice);
+  // console.log(slice);
+  // return slice;
+
+  function getState() {
+    return selector(api.getState());
+  }
+
+  return useSyncExternalStore(api.subscribe, getState);
 };
 
 const createImpl = (createState) => {

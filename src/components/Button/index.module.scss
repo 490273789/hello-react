@@ -1,0 +1,32 @@
+.default {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px 10px 0 0;
+  text-align: center;
+  color: #000;
+  border: 1px solid #6699ff;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+  background: linear-gradient(to right, #6699ff, #19bbcc) no-repeat;
+  background-size: 5% 100%;
+  &:hover {
+    color: #fff;
+    background-size: 100% 100%;
+  }
+  &:active {
+    background: linear-gradient(to right, #19bbcc, #6699ff) no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #82d0c1;
+  }
+}
+.default:hover {
+  color: #fff;
+  background-size: 100% 100%;
+}
+.default:active {
+  background: linear-gradient(to right, #19bbcc, #6699ff) no-repeat;
+  background-size: 100% 100%;
+  border: 1px solid #82d0c1;
+}

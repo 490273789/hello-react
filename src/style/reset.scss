@@ -6,6 +6,12 @@ body,
   height: 100%;
 }
 
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 html,
 body,
 div,
@@ -129,7 +135,7 @@ blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-  content: "";
+  content: '';
   content: none;
 }
 

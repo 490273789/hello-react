@@ -28,12 +28,8 @@ export default function UseStateDemo() {
   return (
     <div className="pt-6">
       <Button onClick={increaseNumber}>点击改变number：{number}</Button>
-      <div className="common_button" onClick={increaseAge}>
-        点击改变age：{age}
-      </div>
-      <div className="common_button" onClick={cleanUp}>
-        取消监听
-      </div>
+      <Button onClick={increaseAge}>点击改变age：{age}</Button>
+      <Button onClick={cleanUp}>取消监听</Button>
     </div>
   );
 }
