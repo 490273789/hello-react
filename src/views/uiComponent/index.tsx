@@ -3,6 +3,7 @@ import Calendar from '@components/Calendar';
 import { Space as AntSpace } from 'antd';
 import dayjs from 'dayjs';
 import Button from '@/components/Button';
+import { MessageProvider } from '@/components/Message';
 import MiniCalendar, { CalendarRef } from '@/components/MiniCalendar';
 import Space from '@/components/Space';
 
@@ -56,21 +57,10 @@ export default function UIComponent() {
           <div>123</div>
           <div>123</div>
         </Space>
+      </div>
 
-        {/* <AntSpace size={20} align="end" wrap split={'|'}>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-          <Button>设置时间</Button>
-        </AntSpace> */}
+      <div>
+        <MessageProvider />
       </div>
     </div>
   );
