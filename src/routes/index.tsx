@@ -104,6 +104,11 @@ const routes: RouteObject[] = [
         path: '/zustand',
         element: 'zustand',
         meta: { title: 'zustand' }
+      },
+      {
+        path: '/react-spring',
+        element: 'react-spring',
+        meta: { title: 'react-spring' }
       }
     ]
   },
