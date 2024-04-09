@@ -1,13 +1,25 @@
-.box1 {
-  height: 100px;
+.box-height {
+  height: 150px;
+}
+.spring-value-box {
+  height: 50px;
   background-color: var(--blue);
 }
-.box2 {
+.spring-box {
   background-color: var(--green);
 }
 
-.box3 {
+.springs-box {
   margin-bottom: 10px;
-  height: 100px;
+  height: 50px;
   background-color: var(--yellow);
+}
+.trail-box {
+  margin-bottom: 10px;
+  height: 50px;
+  background-color: var(--red);
+}
+.smell-box {
+  background-color: var(--blue);
+  color: #fff;
 }
