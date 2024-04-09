@@ -1,5 +1,5 @@
-import { animated, useSpringValue } from '@react-spring/web';
-import styles from '../index.module.scss';
+import { animated, useSpringValue } from "@react-spring/web"
+import styles from "../index.module.scss"
 
 const SpringValue = () => {
   /** 只有一个style变化可以用useSpringValue */
@@ -10,7 +10,7 @@ const SpringValue = () => {
       friction: 10,
       tension: 200
     }
-  });
+  })
   return (
     <>
       <div className="comment_part">只有一个style变化可以用useSpringValue</div>
@@ -20,7 +20,7 @@ const SpringValue = () => {
         onClick={() => width.start(300)}
       />
     </>
-  );
-};
+  )
+}
 
-export default SpringValue;
+export default SpringValue

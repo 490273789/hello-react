@@ -1,17 +1,17 @@
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect } from "react"
+import { useSearchParams } from "react-router-dom"
 
 export default function PageOne() {
-  const [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams()
   useEffect(() => {
-    console.log('searchParams-name:', searchParams.get('name'));
-    console.log('searchParams-name:', searchParams);
-  }, [searchParams]);
+    console.log("searchParams-name:", searchParams.get("name"))
+    console.log("searchParams-name:", searchParams)
+  }, [searchParams])
 
   return (
     <div>
       <div className="content-title">searchParams</div>
-      <div>name:{searchParams.get('name')}</div>
+      <div>name:{searchParams.get("name")}</div>
     </div>
-  );
+  )
 }

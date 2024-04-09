@@ -5,7 +5,7 @@
 > 可以缓存一个计算结果，在依赖不改变的情况下，每次重新渲染都返回缓存的结果。
 
 ```javascript
-const cachedValue = useMemo(calculateValue, dependencies);
+const cachedValue = useMemo(calculateValue, dependencies)
 ```
 
 ## 参数

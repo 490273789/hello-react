@@ -5,7 +5,7 @@
 > 可以缓存一个函数，在依赖不改变的情况下，每次重新渲染都返回缓存的函数。
 
 ```javascript
-const cachedFn = useCallback(fn, dependencies);
+const cachedFn = useCallback(fn, dependencies)
 ```
 
 ## 参数
@@ -24,7 +24,7 @@ const cachedFn = useCallback(fn, dependencies);
 
 ```javascript
 function useCallback(fn, dependencies) {
-  useMemo(() => fn, dependencies); // 基于useMemo实现
+  useMemo(() => fn, dependencies) // 基于useMemo实现
 }
 ```
 
@@ -39,21 +39,21 @@ function useCallback(fn, dependencies) {
 
 ```javascript
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("")
   // 如果当前函数需要在多个地方调用 使用useCallback
   const createOptions = useCallback(() => {
     return {
-      serverUrl: 'https://localhost:1234',
+      serverUrl: "https://localhost:1234",
       roomId: roomId
-    };
-  }, [roomId]);
+    }
+  }, [roomId])
 
   useEffect(() => {
-    const options = createOptions();
-    const connection = createConnection();
-    connection.connect();
-    return () => connection.disconnect();
-  }, [createOptions]);
+    const options = createOptions()
+    const connection = createConnection()
+    connection.connect()
+    return () => connection.disconnect()
+  }, [createOptions])
 }
 ```
 
@@ -82,30 +82,30 @@ function ChatRoom({ roomId }) {
 
 ```javascript
 function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([])
 
   const handleAddTodo = useCallback(
     (text) => {
-      const newTodo = { id: nextId++, text };
-      setTodos([...todos, newTodo]);
+      const newTodo = { id: nextId++, text }
+      setTodos([...todos, newTodo])
     },
     [todos, setTodos]
-  );
+  )
 }
 ```
 
 ```javascript
 function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([])
 
   const handleAddTodo = useCallback(
     (text) => {
-      const newTodo = { id: nextId++, text };
+      const newTodo = { id: nextId++, text }
       // 函数作为参数，这个函数的参数能够获取到最新的状态值，所以就不需要监听state了，通过这种方式解决闭包引发的问题
-      setTodos((todos) => [...todos, newTodo]);
+      setTodos((todos) => [...todos, newTodo])
     },
     [setTodos]
-  );
+  )
 }
 ```
 
@@ -114,22 +114,22 @@ function TodoList() {
 ```javascript
 // 自定义hooks中推荐将所有return的函数都包裹上useCallback
 function useRouter() {
-  const { dispatch } = useContext(RouterStateContext);
+  const { dispatch } = useContext(RouterStateContext)
 
   const navigate = useCallback(
     (url) => {
-      dispatch({ type: 'navigate', url });
+      dispatch({ type: "navigate", url })
     },
     [dispatch]
-  );
+  )
 
   const goBack = useCallback(() => {
-    dispatch({ type: 'back' });
-  }, [dispatch]);
+    dispatch({ type: "back" })
+  }, [dispatch])
 
   return {
     navigate,
     goBack
-  };
+  }
 }
 ```

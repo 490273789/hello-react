@@ -1,27 +1,27 @@
-import { useNavigate, createSearchParams, Outlet } from 'react-router-dom';
+import { useNavigate, createSearchParams, Outlet } from "react-router-dom"
 export default function RouteIndex() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleJump1 = () => {
     const a = {
-      name: 'wsv',
-      age: '18'
-    };
+      name: "wsv",
+      age: "18"
+    }
     navigate({
-      pathname: '/reactRoute/pageOne',
+      pathname: "/reactRoute/pageOne",
       search: `?${createSearchParams(a)}`
-    });
-  };
+    })
+  }
 
   const handleJump2 = () => {
-    const id = 1;
+    const id = 1
     // 动态传参
-    navigate(`/reactRoute/pageTwo/${id}`);
-  };
+    navigate(`/reactRoute/pageTwo/${id}`)
+  }
 
   const handleJump3 = () => {
-    navigate('/reactRoute/pageThree', { state: { id: 8 } });
-  };
+    navigate("/reactRoute/pageThree", { state: { id: 8 } })
+  }
 
   return (
     <div>
@@ -37,5 +37,5 @@ export default function RouteIndex() {
       </div>
       <Outlet />
     </div>
-  );
+  )
 }

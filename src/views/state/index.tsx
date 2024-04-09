@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react"
 
 interface StateMap {
-  number: number;
-  age: number;
-  money: number;
+  number: number
+  age: number
+  money: number
 }
 export default class State extends React.Component<unknown, StateMap> {
   constructor(props: object) {
-    super(props);
+    super(props)
     this.state = {
       number: 1,
       age: 30,
       money: 0
-    };
+    }
     // setTimeout(() => {
     //   this.setState({ number: this.state.number + 1 });
     //   console.log('我是同步的setState：', this.state.number);
@@ -21,19 +21,19 @@ export default class State extends React.Component<unknown, StateMap> {
   componentDidMount() {
     this.setState({
       number: 10
-    });
-    console.log('number1 ', this.state.number);
+    })
+    console.log("number1 ", this.state.number)
 
     setTimeout(() => {
       this.setState({
         number: 11
-      });
-      console.log('setTimeout1 ', this.state.number);
+      })
+      console.log("setTimeout1 ", this.state.number)
       this.setState({
         number: 12
-      });
-      console.log('setTimeout2 ', this.state.number);
-    });
+      })
+      console.log("setTimeout2 ", this.state.number)
+    })
   }
 
   handleChangeNumber() {
@@ -42,26 +42,26 @@ export default class State extends React.Component<unknown, StateMap> {
     // this.setState({ number: newNumber });
     // 方法2
     this.setState({ number: this.state.number + 1 }, () => {
-      console.log('state:', this.state.number);
-    });
-    console.log('我是异步的setState：', this.state.number);
+      console.log("state:", this.state.number)
+    })
+    console.log("我是异步的setState：", this.state.number)
   }
 
   handleChangeMoney() {
-    this.setState((state: StateMap) => ({ money: state.money + 1 }));
-    this.setState((state: StateMap) => ({ money: state.money + 1 }));
-    this.setState((state: StateMap) => ({ money: state.money + 1 }));
-    console.log('我是异步的setState：', this.state.money);
+    this.setState((state: StateMap) => ({ money: state.money + 1 }))
+    this.setState((state: StateMap) => ({ money: state.money + 1 }))
+    this.setState((state: StateMap) => ({ money: state.money + 1 }))
+    console.log("我是异步的setState：", this.state.money)
   }
 
   handleChangeAge() {
-    this.setState({ age: this.state.age + 1 });
-    this.setState({ age: this.state.age + 1 });
-    this.setState({ age: this.state.age + 1 });
+    this.setState({ age: this.state.age + 1 })
+    this.setState({ age: this.state.age + 1 })
+    this.setState({ age: this.state.age + 1 })
   }
 
   render() {
-    console.log('render');
+    console.log("render")
     return (
       <>
         <h1 className="content_title">状态和组件传值</h1>
@@ -103,6 +103,6 @@ export default class State extends React.Component<unknown, StateMap> {
           </div>
         </div>
       </>
-    );
+    )
   }
 }

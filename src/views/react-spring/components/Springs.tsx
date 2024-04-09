@@ -1,8 +1,7 @@
-import { animated, useSprings } from '@react-spring/web';
-import styles from '../index.module.scss';
+import { animated, useSprings } from "@react-spring/web"
+import styles from "../index.module.scss"
 
 const Springs = () => {
-  const a = '1';
   /** 多个元素用useSprings */
   const [springs, springsApi] = useSprings(3, () => ({
     from: {
@@ -15,18 +14,18 @@ const Springs = () => {
     config: {
       duration: 1000
     }
-  }));
+  }))
 
   const handleBox3MouseEnter = () => {
     springsApi.start({
       width: 400
-    });
-  };
+    })
+  }
   const handleBox3MouseMove = () => {
     springsApi.start({
       width: 80
-    });
-  };
+    })
+  }
   return (
     <>
       <div className="comment_part">多个元素用useSprings</div>
@@ -40,7 +39,7 @@ const Springs = () => {
         />
       ))}
     </>
-  );
-};
+  )
+}
 
-export default Springs;
+export default Springs
