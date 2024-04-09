@@ -1,5 +1,5 @@
-import { animated, useSpring } from '@react-spring/web';
-import styles from '../index.module.scss';
+import { animated, useSpring } from "@react-spring/web";
+import styles from "../index.module.scss";
 
 const Spring = () => {
   /** 多个变量变化用useSpring */

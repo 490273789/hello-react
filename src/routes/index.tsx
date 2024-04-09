@@ -1,9 +1,9 @@
 import React from 'react';
+import Layout from '@/layout';
 import { Suspense, lazy, ReactNode, useState, useEffect } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Loading from '@components/Loading';
 import { isString } from '../utils/index';
-import Layout from '@/layout';
 
 export interface MetaProps {
   keepAlive?: boolean;
@@ -109,6 +109,11 @@ const routes: RouteObject[] = [
         path: '/react-spring',
         element: 'react-spring',
         meta: { title: 'react-spring' }
+      },
+      {
+        path: '/common',
+        element: 'common',
+        meta: { title: 'common' }
       }
     ]
   },

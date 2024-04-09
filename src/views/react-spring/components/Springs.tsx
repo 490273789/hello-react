@@ -2,8 +2,8 @@ import { animated, useSprings } from '@react-spring/web';
 import styles from '../index.module.scss';
 
 const Springs = () => {
+  const a = '1';
   /** 多个元素用useSprings */
-
   const [springs, springsApi] = useSprings(3, () => ({
     from: {
       width: 80
