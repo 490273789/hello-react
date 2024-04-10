@@ -1,7 +1,12 @@
-import React from "react"
+import { ReactNode, Suspense } from "react"
 import { lazy, useState, useEffect } from "react"
-import { Navigate, createBrowserRouter } from "react-router-dom"
+import {
+  Navigate,
+  NonIndexRouteObject,
+  createBrowserRouter
+} from "react-router-dom"
 
+import Loading from "@/components/Loading"
 import Layout from "@/layout"
 
 export interface MetaProps {
@@ -11,14 +16,9 @@ export interface MetaProps {
   key?: string
 }
 
-interface IRouteObject {
-  caseSensitive?: boolean
+interface IRouteObject extends NonIndexRouteObject {
   children?: IRouteObject[]
-  element: React.ReactNode
-  index?: false
-  path: string
   meta?: MetaProps
-  isLink?: string
 }
 
 const Jsx = lazy(() => import(`@/views/jsx`))
@@ -38,6 +38,7 @@ const UiComponent = lazy(() => import(`@/views/uiComponent`))
 const Zustand = lazy(() => import(`@/views/zustand`))
 const ReactSpring = lazy(() => import(`@/views/animation/react-spring`))
 const Common = lazy(() => import(`@/views/common`))
+
 const routes: IRouteObject[] = [
   {
     path: "/",
@@ -139,6 +140,21 @@ const routes: IRouteObject[] = [
   }
 ]
 
+/**
+ * 组件设置suspense
+ * @param component
+ * @returns
+ */
+const setRouteSuspense = (component: ReactNode): ReactNode => {
+  return <Suspense fallback={<Loading />}>{component}</Suspense>
+}
+const traversalRouter = (routes: IRouteObject[]) => {
+  routes.forEach((route) => {
+    if (route.element) route.element = setRouteSuspense(route.element)
+    if (route.children) traversalRouter(route.children)
+  })
+}
+
 const getChildRoute = (routes: IRouteObject[], path: string) => {
   const queue: IRouteObject[] = [...routes]
   while (queue.length > 0) {
@@ -164,7 +180,7 @@ export const useChildRoute = (path: string) => {
 
   return route
 }
-
+traversalRouter(routes)
 const finalRoutes = createBrowserRouter(routes)
 
 export default finalRoutes
