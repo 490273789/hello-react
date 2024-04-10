@@ -1,181 +1,170 @@
-import React from 'react';
-import Layout from '@/layout';
-import { Suspense, lazy, ReactNode, useState, useEffect } from 'react';
-import { Navigate, createBrowserRouter } from 'react-router-dom';
-import Loading from '@components/Loading';
-import { isString } from '../utils/index';
+import React from "react"
+import { lazy, useState, useEffect } from "react"
+import { Navigate, createBrowserRouter } from "react-router-dom"
+
+import Layout from "@/layout"
 
 export interface MetaProps {
-  keepAlive?: boolean;
-  requiresAuth?: boolean;
-  title: string;
-  key?: string;
+  keepAlive?: boolean
+  requiresAuth?: boolean
+  title: string
+  key?: string
 }
 
-interface RouteObject {
-  caseSensitive?: boolean;
-  children?: RouteObject[];
-  element: React.ReactNode | string;
-  index?: false;
-  path: string;
-  meta?: MetaProps;
-  isLink?: string;
+interface IRouteObject {
+  caseSensitive?: boolean
+  children?: IRouteObject[]
+  element: React.ReactNode
+  index?: false
+  path: string
+  meta?: MetaProps
+  isLink?: string
 }
 
-const routes: RouteObject[] = [
+const Jsx = lazy(() => import(`@/views/jsx`))
+const Event = lazy(() => import(`@/views/event`))
+const This = lazy(() => import(`@/views/this`))
+const State = lazy(() => import(`@/views/state`))
+const Drag = lazy(() => import(`@/views/drag`))
+const Form = lazy(() => import(`@/views/form`))
+const Animation = lazy(() => import(`@/views/animation`))
+const ReactRouter = lazy(() => import(`@/views/reactRouter`))
+const PageOne = lazy(() => import(`@/views/reactRouter/pageOne`))
+const PageTwo = lazy(() => import(`@/views/reactRouter/pageTwo`))
+const PageThree = lazy(() => import(`@/views/reactRouter/pageThree`))
+const Hooks = lazy(() => import(`@/views/hooks`))
+const UseCallback = lazy(() => import(`@/views/hooks/useCallbackDemo`))
+const UiComponent = lazy(() => import(`@/views/uiComponent`))
+const Zustand = lazy(() => import(`@/views/zustand`))
+const ReactSpring = lazy(() => import(`@/views/animation/react-spring`))
+const Common = lazy(() => import(`@/views/common`))
+const routes: IRouteObject[] = [
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
-    meta: { title: '首页' },
+    meta: { title: "首页" },
     children: [
       {
-        path: '/',
-        element: 'jsx',
-        meta: { title: 'jsx' }
+        path: "/",
+        element: <Jsx />,
+        meta: { title: "jsx" }
       },
       {
-        path: '/event',
-        element: 'event',
-        meta: { title: '事件' }
+        path: "/event",
+        element: <Event />,
+        meta: { title: "事件" }
       },
       {
-        path: '/this',
-        element: 'this',
-        meta: { title: 'this' }
+        path: "/this",
+        element: <This />,
+        meta: { title: "this" }
       },
       {
-        path: '/state',
-        element: 'state',
-        meta: { title: 'state & props' }
+        path: "/state",
+        element: <State />,
+        meta: { title: "state & props" }
       },
       {
-        path: '/drag',
-        element: 'drag',
-        meta: { title: 'useDrag' }
+        path: "/drag",
+        element: <Drag />,
+        meta: { title: "useDrag" }
       },
       {
-        path: '/form',
-        element: 'form',
-        meta: { title: 'useForm' }
+        path: "/form",
+        element: <Form />,
+        meta: { title: "useForm" }
       },
       {
-        path: '/animation',
-        element: 'animation',
-        meta: { title: 'useAnimation' }
+        path: "/animation",
+        element: <Animation />,
+        meta: { title: "useAnimation" }
       },
       {
-        path: '/reactRoute',
-        element: 'reactRouter',
-        meta: { title: 'reactRoute' },
+        path: "/reactRoute",
+        element: <ReactRouter />,
+        meta: { title: "reactRoute" },
         children: [
           {
-            path: 'pageOne',
-            element: 'reactRouter.pageOne',
-            meta: { title: 'pageOne' }
+            path: "pageOne",
+            element: <PageOne />,
+            meta: { title: "pageOne" }
           },
           {
-            path: 'pageTwo/:id',
-            element: 'reactRouter.pageTwo',
-            meta: { title: 'pageTwo' }
+            path: "pageTwo/:id",
+            element: <PageTwo />,
+            meta: { title: "pageTwo" }
           },
           {
-            path: 'pageThree',
-            element: 'reactRouter.pageThree',
-            meta: { title: 'pageThree' }
+            path: "pageThree",
+            element: <PageThree />,
+            meta: { title: "pageThree" }
           }
         ]
       },
       {
-        path: '/hooks',
-        element: 'hooks',
-        meta: { title: 'hooks' }
+        path: "/hooks",
+        element: <Hooks />,
+        meta: { title: "hooks" }
       },
       {
-        path: '/use-callback',
-        element: 'hooks.useCallbackDemo',
-        meta: { title: 'useCallback' }
+        path: "/use-callback",
+        element: <UseCallback />,
+        meta: { title: "useCallback" }
       },
       {
-        path: '/ui-component',
-        element: 'uiComponent',
-        meta: { title: '自定义组件' }
+        path: "/ui-component",
+        element: <UiComponent />,
+        meta: { title: "自定义组件" }
       },
       {
-        path: '/zustand',
-        element: 'zustand',
-        meta: { title: 'zustand' }
+        path: "/zustand",
+        element: <Zustand />,
+        meta: { title: "zustand" }
       },
       {
-        path: '/react-spring',
-        element: 'react-spring',
-        meta: { title: 'react-spring' }
+        path: "/react-spring",
+        element: <ReactSpring />,
+        meta: { title: "react-spring" }
       },
       {
-        path: '/common',
-        element: 'common',
-        meta: { title: 'common' }
+        path: "/common",
+        element: <Common />,
+        meta: { title: "common" }
       }
     ]
   },
   {
-    path: '*',
+    path: "*",
     element: <Navigate to="/" />
   }
-];
+]
 
-// 返回懒加载元素
-const LazyElement = (path: string): ReactNode => {
-  const allPath = path.split('.');
-  const dir = allPath[0];
-  const file = allPath.length === 2 ? allPath[1] : 'index';
-  const ImportComponent = lazy(() => import(`@/views/${dir}/${file}.tsx`));
-  return (
-    <Suspense fallback={<Loading />}>
-      <ImportComponent />
-    </Suspense>
-  );
-};
-
-// 将懒加载元素安装到routes中
-const handleFilterElement = (routes: RouteObject[]) => {
-  const res: RouteObject[] = [];
-  routes.forEach((ele) => {
-    const temp: RouteObject = { ...ele };
-    if (ele.children?.length) temp.children = handleFilterElement(ele.children);
-    if (isString(ele.element))
-      temp.element = LazyElement(ele.element as string);
-    res.push(temp);
-  });
-  return res;
-};
-
-const getChildRoute = (routes: RouteObject[], path: string) => {
-  const queue: RouteObject[] = [...routes];
+const getChildRoute = (routes: IRouteObject[], path: string) => {
+  const queue: IRouteObject[] = [...routes]
   while (queue.length > 0) {
-    const route = queue.shift();
+    const route = queue.shift()
     if (route?.path === path) {
-      return route?.children ?? [];
+      return route?.children ?? []
     }
     if (route?.children) {
       for (let i = 0, len = route?.children.length; i < len; i++) {
-        queue.push(route?.children[i]);
+        queue.push(route?.children[i])
       }
     }
-    return [];
+    return []
   }
-};
+}
 
 export const useChildRoute = (path: string) => {
-  const [route, setRoute] = useState<RouteObject[]>([]);
+  const [route, setRoute] = useState<IRouteObject[]>([])
   useEffect(() => {
-    const childRoute = getChildRoute(routes, path) ?? [];
-    setRoute(childRoute);
-  }, [path]);
+    const childRoute = getChildRoute(routes, path) ?? []
+    setRoute(childRoute)
+  }, [path])
 
-  return route;
-};
+  return route
+}
 
-const route = handleFilterElement(routes);
-const finalRoutes = createBrowserRouter(route);
+const finalRoutes = createBrowserRouter(routes)
 
-export default finalRoutes;
+export default finalRoutes
