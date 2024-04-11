@@ -14,6 +14,8 @@ import Trail from "./components/Trail"
 const ReactSpring = () => {
   return (
     <div>
+      <h2>smell</h2>
+      <Smell />
       <div className="comment_part">
         useSpringValue：指定单个属性的变化。 useSpring：指定多个属性的变化
         <br />
@@ -41,9 +43,6 @@ const ReactSpring = () => {
       <h2>useTrail</h2>
       <Trail />
       <div className="common_block"></div>
-
-      <h2>smell</h2>
-      <Smell />
 
       <h2>Svg</h2>
       <Svg />

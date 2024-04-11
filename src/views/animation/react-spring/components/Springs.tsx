@@ -3,7 +3,7 @@ import styles from "../index.module.scss"
 
 const Springs = () => {
   /** 多个元素用useSprings */
-  const [springs, springsApi] = useSprings(3, () => ({
+  const [springs, springsApi] = useSprings(2, () => ({
     from: { width: 80 },
     // to: { width: 200, height: 200 },
     config: { duration: 1000 }

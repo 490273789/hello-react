@@ -37,6 +37,7 @@ const UseCallback = lazy(() => import(`@/views/hooks/useCallbackDemo`))
 const UiComponent = lazy(() => import(`@/views/uiComponent`))
 const Zustand = lazy(() => import(`@/views/zustand`))
 const ReactSpring = lazy(() => import(`@/views/animation/react-spring`))
+const UseGesture = lazy(() => import(`@/views/animation/use-gesture/index`))
 const Common = lazy(() => import(`@/views/common`))
 
 const routes: IRouteObject[] = [
@@ -126,6 +127,11 @@ const routes: IRouteObject[] = [
         path: "/react-spring",
         element: <ReactSpring />,
         meta: { title: "react-spring" }
+      },
+      {
+        path: "/use-gesture",
+        element: <UseGesture />,
+        meta: { title: "use-gesture" }
       },
       {
         path: "/common",
