@@ -9,7 +9,14 @@ function Drag() {
     api.start({ x: down ? mx : 0, y: down ? my : 0, immediate: down })
   })
   return (
-    <animated.div className={styles["drag-box"]} {...bind()} style={{ x, y }} />
+    <>
+      <div className="comment_desc">拽我</div>
+      <animated.div
+        className={styles["drag-box"]}
+        {...bind()}
+        style={{ x, y }}
+      />
+    </>
   )
 }
 export default Drag

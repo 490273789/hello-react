@@ -9,6 +9,7 @@ const SpringValue = () => {
   return (
     <>
       <div className="comment_part">只有一个style变化可以用useSpringValue</div>
+      <div className="comment_desc">点击看效果</div>
       <animated.div
         className={styles["spring-value-box"]}
         style={{ width }}

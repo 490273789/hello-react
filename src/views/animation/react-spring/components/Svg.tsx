@@ -1,6 +1,7 @@
 const Svg = () => {
   return (
     <div>
+      <div className="comment_part">svg的使用</div>
       <svg
         width="500px"
         height="200px"

@@ -16,6 +16,7 @@ const Trail = () => {
   return (
     <>
       <div className="comment_part">多个元素不同步的情况使用useTrail</div>
+      <div className="comment_desc">移入鼠标看效果</div>
       {trail.map((style, index) => (
         <animated.div
           className={styles["trail-box"]}

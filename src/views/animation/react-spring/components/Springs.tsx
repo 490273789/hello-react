@@ -19,6 +19,7 @@ const Springs = () => {
   return (
     <>
       <div className="comment_part">多个元素用useSprings</div>
+      <div className="comment_desc">移入鼠标看效果</div>
       {springs.map((ele, index: number) => (
         <animated.div
           key={index}

@@ -38,6 +38,9 @@ const UiComponent = lazy(() => import(`@/views/uiComponent`))
 const Zustand = lazy(() => import(`@/views/zustand`))
 const ReactSpring = lazy(() => import(`@/views/animation/react-spring`))
 const UseGesture = lazy(() => import(`@/views/animation/use-gesture/index`))
+const TransitionGroup = lazy(
+  () => import(`@/views/animation/transition-group/index`)
+)
 const Common = lazy(() => import(`@/views/common`))
 
 const routes: IRouteObject[] = [
@@ -132,6 +135,11 @@ const routes: IRouteObject[] = [
         path: "/use-gesture",
         element: <UseGesture />,
         meta: { title: "use-gesture" }
+      },
+      {
+        path: "/transition-group",
+        element: <TransitionGroup />,
+        meta: { title: "transition-group" }
       },
       {
         path: "/common",

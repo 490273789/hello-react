@@ -16,7 +16,9 @@ const Spring = () => {
   }
   return (
     <div className={styles["box-height"]}>
+      <div className="comment_part">Q弹动画</div>
       <div className="comment_part">多个变量变化用useSpring</div>
+      <div className="comment_desc">移入鼠标看效果</div>
       <animated.div
         className={styles["spring-box"]}
         style={{ ...style }}
