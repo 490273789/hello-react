@@ -17,5 +17,4 @@ const SpringValue = () => {
     </>
   )
 }
-
 export default SpringValue
