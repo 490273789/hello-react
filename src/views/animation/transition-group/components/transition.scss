@@ -1,0 +1,38 @@
+.appear {
+  transform: scale(0);
+}
+
+.appear-active {
+  transform: scale(1);
+  transition: all 1s ease;
+}
+
+// .appear-done {
+// }
+.enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.enter-done {
+  background-color: var(--green);
+}
+.exit {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+// .exit-done {
+// }

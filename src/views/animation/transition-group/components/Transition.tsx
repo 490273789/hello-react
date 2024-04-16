@@ -1,51 +1,22 @@
 import { useState } from "react"
-import { animated, useTransition } from "@react-spring/web"
+import { CSSTransition } from "react-transition-group"
 import Button from "@/components/Button"
 import styles from "../index.module.scss"
+import "./transition.scss"
 
 function Transition() {
-  const [pages, setPages] = useState([
-    { id: 1, label: "page1" },
-    { id: 2, label: "page2" }
-  ])
+  const [flag, setFlag] = useState(true)
 
-  const transition = useTransition(pages, {
-    from: { transform: "translate3d(100%,0,0)", opacity: 0 },
-    enter: { transform: "translate3d(0%,0,0)", opacity: 1 },
-    leave: { transform: "translate3d(-100%,0,0)", opacity: 0 }
-  })
-
-  const handleAddItem = () => {
-    setPages([
-      ...pages,
-      { id: pages.length + 1, label: `page${pages.length + 1}` }
-    ])
-  }
-
-  const handleDeleteItem = (id: number) => {
-    setPages(pages.filter((item) => item.id !== id))
-  }
   return (
     <div>
-      <div className={styles["transition-box"]}>
-        {transition((style, item) => {
-          return (
-            <animated.div
-              className={styles["transition-box-item"]}
-              style={{ ...style }}
-            >
-              <div className={styles["transition-box-label"]}>{item.label}</div>
-              <div
-                className={styles["transition-box-del"]}
-                onClick={() => handleDeleteItem(item.id)}
-              >
-                x
-              </div>
-            </animated.div>
-          )
-        })}
+      <div className="comment_part">
+        当 in 变为 true 的时候，会触发进入的动画，依次给元素加上
+        .enter、.enter-active、.enter-done 的 className。
       </div>
-      <Button onClick={handleAddItem}>Add</Button>
+      <CSSTransition in={flag} appear={true} timeout={1000}>
+        <div className={styles.box1}></div>
+      </CSSTransition>
+      <Button onClick={() => setFlag(!flag)}>{flag ? "隐藏" : "显示"}</Button>
     </div>
   )
 }
