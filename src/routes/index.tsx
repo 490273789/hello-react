@@ -41,7 +41,7 @@ const UseGesture = lazy(() => import(`@/views/animation/use-gesture/index`))
 const TransitionGroup = lazy(
   () => import(`@/views/animation/transition-group/index`)
 )
-const Portal = lazy(() => import(`@/views/portal`))
+const CusComponent = lazy(() => import(`@/views/cus-component`))
 const Common = lazy(() => import(`@/views/common`))
 
 const routes: IRouteObject[] = [
@@ -143,9 +143,9 @@ const routes: IRouteObject[] = [
         meta: { title: "transition-group" }
       },
       {
-        path: "portal",
-        element: <Portal />,
-        meta: { title: "prtal" }
+        path: "cus-component",
+        element: <CusComponent />,
+        meta: { title: "cus-component" }
       },
       {
         path: "/common",
