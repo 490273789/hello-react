@@ -1,6 +1,6 @@
 import Button from "@/components/Button"
 import CusPortal from "./components/CusPortal"
-import MutationObserverUse from "./components/MutationObserver"
+import MutationObserverUse from "./components/MutationObserverUse"
 import styles from "./index.module.scss"
 
 function CusComponent() {

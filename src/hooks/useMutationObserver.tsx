@@ -3,10 +3,10 @@ import { useEffect } from "react"
 const defaultOptions = {
   childList: true,
   subtree: true,
-  attributeFilter: ["className", "style"]
+  attributeFilter: ["class"]
 }
 
-interface Options {
+export interface MutationObserverOptions {
   childList: boolean
   subtree: boolean
   attributeFilter: string[]
@@ -14,7 +14,7 @@ interface Options {
 function useMutationObserver(
   nodeOrList: HTMLElement | HTMLElement[],
   callBack: MutationCallback,
-  options: Options = defaultOptions
+  options: MutationObserverOptions = defaultOptions
 ) {
   useEffect(() => {
     if (!nodeOrList) return
@@ -23,7 +23,7 @@ function useMutationObserver(
     const nodeList = Array.isArray(nodeOrList) ? nodeOrList : [nodeOrList]
     if ("MutationObserver" in window) {
       instance = new MutationObserver(callBack)
-
+      console.log("🚀 ~ nodeList.forEach ~ options:", options)
       nodeList.forEach((node) => {
         instance.observe(node, options)
       })
@@ -32,7 +32,7 @@ function useMutationObserver(
       instance.takeRecords()
       instance.disconnect()
     }
-  }, [nodeOrList, options, callBack])
+  }, [nodeOrList, callBack, options])
   return
 }
 
