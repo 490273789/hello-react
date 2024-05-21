@@ -4,7 +4,7 @@
 
 > 可以缓存一个计算结果，在依赖不改变的情况下，每次重新渲染都返回缓存的结果。
 
-```javascript
+```JavaScript
 const cachedValue = useMemo(calculateValue, dependencies)
 ```
 
@@ -19,4 +19,5 @@ const cachedValue = useMemo(calculateValue, dependencies)
 ## 返回值
 
 1. 初始化渲染的时候返回的是调用第一个参数的返回值
+
 2. 在之后的渲染中，如果依赖的值没有改变则返回上次缓存的值，如果依赖改变，则重新执行calculationValue函数返回新的值

@@ -4,7 +4,6 @@ import UseStateDemo from "./useStateDemo"
 export default function Hooks() {
   // const cachedFn = useCallback(fn, dependencies)
   const [version, setVersion] = useState(0)
-
   console.log("-----render-----")
   return (
     <div>
