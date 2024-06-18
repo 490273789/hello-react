@@ -43,6 +43,7 @@ const TransitionGroup = lazy(
 )
 const CusComponent = lazy(() => import(`@/views/cus-component`))
 const Common = lazy(() => import(`@/views/common`))
+const TimeSlice = lazy(() => import("@/views/performance/time-slice"))
 
 const routes: IRouteObject[] = [
   {
@@ -107,6 +108,7 @@ const routes: IRouteObject[] = [
           }
         ]
       },
+
       {
         path: "/hooks",
         element: <Hooks />,
@@ -151,6 +153,11 @@ const routes: IRouteObject[] = [
         path: "/common",
         element: <Common />,
         meta: { title: "common" }
+      },
+      {
+        path: "/time-slice",
+        element: <TimeSlice />,
+        meta: { title: "time-slice" }
       }
     ]
   },
