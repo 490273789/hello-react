@@ -7,11 +7,28 @@ import { defineConfig } from "vite"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: "build",
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes("node_modules")) {
+            return "vandor"
+          }
+        }
+      }
+    }
+  },
   // css相关配置
   css: {
     modules: {
       // name 表示当前文件名，local 表示类名
       generateScopedName: "[name]__[local]___[hash:base64:5]"
+    },
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler"
+      }
     }
   },
   plugins: [
