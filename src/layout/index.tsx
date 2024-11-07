@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import ErrorBoundary from "antd/es/alert/ErrorBoundary"
 import style from "./index.module.scss"
 import Navigator from "@/layout/navigator"
 
@@ -10,6 +11,9 @@ const Layout = () => {
         <Navigator />
       </div>
       <div className={style["right-part"]}>
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
         <Outlet />
       </div>
     </div>

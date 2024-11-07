@@ -35,8 +35,9 @@ export default function useDrag() {
       domRef.current?.removeEventListener("mouseup", end)
     }
     domRef.current?.addEventListener("mousedown", start)
+    const ref = domRef.current
     return () => {
-      domRef.current?.removeEventListener("mousedown", start)
+      ref?.removeEventListener("mousedown", start)
     }
   }, [])
   const style = {

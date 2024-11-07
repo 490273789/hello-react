@@ -1,22 +1,97 @@
-import { MouseEvent } from "react"
+import { Button, Card, Form, Input, Space, Typography } from "antd"
 
 const Event = () => {
-  /**
-   *
-   * @param e 合成的事件对象
-   */
-  const handleClick = (e: MouseEvent) => {
-    // 原生事件对象
-    console.log(e.nativeEvent)
-    // 阻止默认行为
-    e.preventDefault()
-    alert("事件触发")
-    console.log(e)
-  }
+  const [form] = Form.useForm()
+
   return (
-    <div>
-      <div onClick={(e) => handleClick(e)}>事件</div>
-    </div>
+    <Form
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 18 }}
+      form={form}
+      name="dynamic_form_complex"
+      style={{ maxWidth: 600 }}
+      autoComplete="off"
+      initialValues={{ items: [{}] }}
+    >
+      <Form.List name="items">
+        {(fields, { add, remove }) => (
+          <div style={{ display: "flex", rowGap: 16, flexDirection: "column" }}>
+            {fields.map((field) => (
+              <Card
+                size="small"
+                title={`Item ${field.name + 1}`}
+                key={field.key}
+                extra={
+                  <div
+                    onClick={() => {
+                      remove(field.name)
+                    }}
+                  >
+                    remove{" "}
+                  </div>
+                }
+              >
+                <Form.Item label="Name" name={[field.name, "name"]}>
+                  <Input />
+                </Form.Item>
+
+                {/* Nest Form.List */}
+                <Form.Item label="List">
+                  <Form.List name={[field.name, "list"]}>
+                    {(subFields, subOpt) => (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          rowGap: 16
+                        }}
+                      >
+                        {subFields.map((subField) => (
+                          <Space key={subField.key}>
+                            <Form.Item noStyle name={[subField.name, "first"]}>
+                              <Input placeholder="first" />
+                            </Form.Item>
+                            <Form.Item noStyle name={[subField.name, "second"]}>
+                              <Input placeholder="second" />
+                            </Form.Item>
+                            <div
+                              onClick={() => {
+                                subOpt.remove(subField.name)
+                              }}
+                            >
+                              remove{" "}
+                            </div>
+                          </Space>
+                        ))}
+                        <Button
+                          type="dashed"
+                          onClick={() => subOpt.add()}
+                          block
+                        >
+                          + Add Sub Item
+                        </Button>
+                      </div>
+                    )}
+                  </Form.List>
+                </Form.Item>
+              </Card>
+            ))}
+
+            <Button type="dashed" onClick={() => add()} block>
+              + Add Item
+            </Button>
+          </div>
+        )}
+      </Form.List>
+
+      <Form.Item noStyle shouldUpdate>
+        {() => (
+          <Typography>
+            <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
+          </Typography>
+        )}
+      </Form.Item>
+    </Form>
   )
 }
 

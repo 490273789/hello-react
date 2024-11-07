@@ -1,19 +1,22 @@
 import eslint from "@eslint/js"
-import globals from "globals"
+import eslintConfigPrettier from "eslint-config-prettier"
+import importOrder from "eslint-plugin-import"
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
+import globals from "globals"
 import tsEslint from "typescript-eslint"
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
-import importOrder from "eslint-plugin-import"
-import eslintConfigPrettier from "eslint-config-prettier"
 
 const baseConfig = [
-  { ignores: ["dist", "node_modules/**"] },
+  { ignores: ["dist", "build", "node_modules/**"] },
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,js}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
     },
     plugins: {
       "react-hooks": reactHooks,

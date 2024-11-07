@@ -1,11 +1,11 @@
 import { useState } from "react"
-import useStore from "@/stores"
 import "./index.scss"
+import useStore from "@/stores"
 
 const Zustand = () => {
   console.log(useStore)
-  const age = useStore((state: any) => state.age)
-  const setAge = useStore((state: any) => state.setAge)
+  const age = useStore((state) => state.age)
+  const setAge = useStore((state) => state.setAge)
 
   const [active, setActive] = useState("1")
 
