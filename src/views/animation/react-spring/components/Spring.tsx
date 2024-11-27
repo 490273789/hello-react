@@ -11,6 +11,7 @@ const Spring = () => {
   const handleBox2MouseEnter = () => {
     api.start({ width: 400, height: 100 })
   }
+
   const handleBox2MouseMove = () => {
     api.start({ width: 80, height: 40 })
   }

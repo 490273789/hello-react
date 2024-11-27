@@ -1,8 +1,8 @@
 // import { browserslistToTargets } from 'lightningcss';
 import path from "path"
-import eslint from "@nabla/vite-plugin-eslint"
 import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
+import eslint from "vite-plugin-eslint2"
 // import browserslist from 'browserslist';
 
 // https://vitejs.dev/config/
