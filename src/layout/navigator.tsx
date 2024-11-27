@@ -1,19 +1,18 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import cs from "classnames"
 import style from "@/layout/index.module.scss"
-import { useChildRoute } from "@/routes"
+import { routes } from "@/routes"
 
 const Navigator = () => {
   const navigate = useNavigate()
   const location = useLocation()
-  const childRoute = useChildRoute("/")
 
   const switchRoute = (path: string) => {
     navigate(path)
   }
   return (
     <div className={style["navigator"]}>
-      {childRoute.map((route) => {
+      {routes[0].children?.map((route) => {
         return (
           <div
             className={cs(

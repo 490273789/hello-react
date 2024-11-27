@@ -1,5 +1,4 @@
 import { ReactNode, Suspense } from "react"
-import { useState, useEffect } from "react"
 import {
   Navigate,
   NonIndexRouteObject,
@@ -44,7 +43,7 @@ interface IRouteObject extends NonIndexRouteObject {
   meta?: MetaProps
 }
 
-const routes: IRouteObject[] = [
+export const routes: IRouteObject[] = [
   {
     path: "/",
     element: <Layout />,
@@ -181,31 +180,6 @@ const traversalRouter = (routes: IRouteObject[]) => {
   })
 }
 
-const getChildRoute = (routes: IRouteObject[], path: string) => {
-  const queue: IRouteObject[] = [...routes]
-  while (queue.length > 0) {
-    const route = queue.shift()
-    if (route?.path === path) {
-      return route?.children ?? []
-    }
-    if (route?.children) {
-      for (let i = 0, len = route?.children.length; i < len; i++) {
-        queue.push(route?.children[i])
-      }
-    }
-    return []
-  }
-}
-
-export const useChildRoute = (path: string) => {
-  const [route, setRoute] = useState<IRouteObject[]>([])
-  useEffect(() => {
-    const childRoute = getChildRoute(routes, path) ?? []
-    setRoute(childRoute)
-  }, [path])
-
-  return route
-}
 traversalRouter(routes)
 const finalRoutes = createBrowserRouter(routes)
 

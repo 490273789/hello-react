@@ -1,5 +1,5 @@
-import { useSyncExternalStore, useState, useEffect } from "react"
-import { useDebugValue } from "react"
+import { useSyncExternalStore } from "react"
+// import { useDebugValue } from "react"
 
 /** 创建store */
 const createStore = (createState) => {
@@ -22,7 +22,7 @@ const createStore = (createState) => {
       const previousState = state
       console.log(replace ?? typeof nextState !== "object")
       state =
-        replace ?? typeof nextState !== "object"
+        (replace ?? typeof nextState !== "object")
           ? nextState
           : Object.assign({}, state, nextState)
       listeners.forEach((listener) => listener(state, previousState))

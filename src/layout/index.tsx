@@ -14,7 +14,6 @@ const Layout = () => {
         <ErrorBoundary>
           <Outlet />
         </ErrorBoundary>
-        <Outlet />
       </div>
     </div>
   )
