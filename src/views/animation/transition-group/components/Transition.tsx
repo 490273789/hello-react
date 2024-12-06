@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { CSSTransition } from "react-transition-group"
-import Button from "@/components/Button"
-import styles from "../index.module.scss"
-import "./transition.scss"
+import { useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import Button from "@/components/Button";
+import styles from "../index.module.scss";
+import "./transition.scss";
 
 function Transition() {
-  const [flag, setFlag] = useState(true)
+  const [flag, setFlag] = useState(true);
 
   return (
     <div>
@@ -18,7 +18,7 @@ function Transition() {
       </CSSTransition>
       <Button onClick={() => setFlag(!flag)}>{flag ? "隐藏" : "显示"}</Button>
     </div>
-  )
+  );
 }
 
-export default Transition
+export default Transition;

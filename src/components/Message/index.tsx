@@ -1,32 +1,38 @@
-import { CSSProperties, FC, ReactNode, useEffect, useMemo } from "react"
-import { createPortal } from "react-dom"
-import { TransitionGroup, CSSTransition } from "react-transition-group"
-import useStore from "./useStore"
-import "./index.scss"
+import { CSSProperties, FC, ReactNode, useEffect, useMemo } from "react";
+import { createPortal } from "react-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import useStore from "./useStore";
+import "./index.scss";
 
-export type Position = "top" | "bottom"
+export type Position = "top" | "bottom";
 
 export interface MessageProps {
-  style?: CSSProperties
-  className?: string | string[]
-  content: ReactNode
-  duration?: number
-  id?: number
-  position?: Position
+  style?: CSSProperties;
+  className?: string | string[];
+  content: ReactNode;
+  duration?: number;
+  id?: number;
+  position?: Position;
 }
 
-export const MessageProvider: FC<{}> = (props) => {
-  const { messageList, add, update, remove, clearAll } = useStore("top")
-
+export const MessageProvider: FC<{ children: ReactNode }> = (props) => {
+  const { messageList, add, update, remove, clearAll } = useStore("top");
+  console.log(
+    "[ update, remove, clearAll ] >",
+    update,
+    remove,
+    clearAll,
+    props,
+  );
   useEffect(() => {
     setInterval(() => {
       add({
-        content: Math.random().toString().slice(2, 8)
-      })
-    }, 2000)
-  }, [])
+        content: Math.random().toString().slice(2, 8),
+      });
+    }, 2000);
+  }, [add]);
 
-  const positions = Object.keys(messageList) as Position[]
+  const positions = Object.keys(messageList) as Position[];
   const messageWrapper = (
     <div className="message-wrapper">
       {positions.map((direction) => {
@@ -42,20 +48,20 @@ export const MessageProvider: FC<{}> = (props) => {
                     <div className="message-item">{item.content}</div>
                   </div>
                 </CSSTransition>
-              )
+              );
             })}
           </TransitionGroup>
-        )
+        );
       })}
     </div>
-  )
+  );
 
   const el = useMemo(() => {
-    const el = document.createElement("div")
-    el.className = "wrapper"
-    document.body.appendChild(el)
-    return el
-  }, [])
+    const el = document.createElement("div");
+    el.className = "wrapper";
+    document.body.appendChild(el);
+    return el;
+  }, []);
 
-  return createPortal(messageWrapper, el)
-}
+  return createPortal(messageWrapper, el);
+};

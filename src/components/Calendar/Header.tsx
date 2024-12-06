@@ -1,20 +1,20 @@
-import { useContext } from "react"
-import { Dayjs } from "dayjs"
-import styles from "./index.module.scss"
-import allLocales from "./locale"
-import LocaleContext from "./LocaleContext"
+import { useContext } from "react";
+import { Dayjs } from "dayjs";
+import styles from "./index.module.scss";
+import allLocales from "./locale";
+import LocaleContext from "./LocaleContext";
 interface HeaderProps {
-  curMonth: Dayjs
-  preMonthHandler: () => void
-  nextMonthHandler: () => void
-  todayHandler: () => void
+  curMonth: Dayjs;
+  preMonthHandler: () => void;
+  nextMonthHandler: () => void;
+  todayHandler: () => void;
 }
 
 const Header = (props: HeaderProps) => {
-  const { curMonth, preMonthHandler, nextMonthHandler, todayHandler } = props
-  const localeContext = useContext(LocaleContext)
+  const { curMonth, preMonthHandler, nextMonthHandler, todayHandler } = props;
+  const localeContext = useContext(LocaleContext);
 
-  const CalendarLocale = allLocales[localeContext.locale]
+  const CalendarLocale = allLocales[localeContext.locale];
   return (
     <div className={styles["calendar-header"]}>
       <div className={styles["calendar-header-left"]}>
@@ -41,7 +41,7 @@ const Header = (props: HeaderProps) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

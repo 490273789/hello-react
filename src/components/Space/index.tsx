@@ -2,42 +2,43 @@ import {
   CSSProperties,
   Fragment,
   HTMLAttributes,
+  isValidElement,
   useContext,
-  useMemo
-} from "react"
-import { FC, Children } from "react"
-export type SizeType = "small" | "middle" | "large" | number | undefined
-import cn from "classnames"
-import "./index.scss"
-import { ConfigContext } from "./ConfigProvider"
+  useMemo,
+} from "react";
+import { FC, Children } from "react";
+export type SizeType = "small" | "middle" | "large" | number | undefined;
+import cn from "classnames";
+import "./index.scss";
+import { ConfigContext } from "./context";
 
 interface SpaceProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string
-  style?: CSSProperties
-  size?: SizeType | [SizeType, SizeType]
-  direction?: "horizontal" | "vertical"
-  align?: "start" | "end" | "center" | "baseline"
-  split?: React.ReactNode
-  wrap?: boolean
+  className?: string;
+  style?: CSSProperties;
+  size?: SizeType | [SizeType, SizeType];
+  direction?: "horizontal" | "vertical";
+  align?: "start" | "end" | "center" | "baseline";
+  split?: React.ReactNode;
+  wrap?: boolean;
 }
 
 export interface ConfigContextType {
   space?: {
-    size?: SizeType
-  }
+    size?: SizeType;
+  };
 }
 
 const spaceSize = {
   small: 8,
   middle: 16,
-  large: 24
-}
+  large: 24,
+};
 const getNumberSize = (size: SizeType) => {
-  return typeof size === "string" ? spaceSize[size] : size ?? 0
-}
+  return typeof size === "string" ? spaceSize[size] : (size ?? 0);
+};
 
 const Space: FC<SpaceProps> = (props) => {
-  const { space } = useContext(ConfigContext)
+  const { space } = useContext(ConfigContext);
   const {
     className,
     style,
@@ -47,20 +48,20 @@ const Space: FC<SpaceProps> = (props) => {
     split,
     wrap,
     ...otherProps
-  } = props
+  } = props;
 
-  const childNodes = Children.toArray(props.children)
+  const childNodes = Children.toArray(props.children);
 
   const mergedAlign =
-    direction === "horizontal" && align === undefined ? "center" : align
+    direction === "horizontal" && align === undefined ? "center" : align;
 
   const classnames = cn("space", `space-${direction}`, {
     [`space-align-${mergedAlign}`]: mergedAlign,
-    className
-  })
+    className,
+  });
 
-  const nodes = childNodes.map((child: any, i) => {
-    const key = (child && child.key) ?? `space-item-${i}`
+  const nodes = childNodes.map((child: React.ReactNode, i) => {
+    const key = isValidElement(child) ? child?.key : `space-item-${i}`;
     return (
       <Fragment key={key}>
         <div className="space-item">{child}</div>
@@ -70,21 +71,21 @@ const Space: FC<SpaceProps> = (props) => {
           </span>
         )}
       </Fragment>
-    )
-  })
+    );
+  });
 
-  const otherStyles: CSSProperties = {}
+  const otherStyles: CSSProperties = {};
   const [horizontalSize, verticalSize] = useMemo(
     () =>
       (Array.isArray(size) ? size : ([size, size] as [SizeType, SizeType])).map(
-        (item) => getNumberSize(item)
+        (item) => getNumberSize(item),
       ),
-    [size]
-  )
+    [size],
+  );
 
-  otherStyles.columnGap = horizontalSize
-  otherStyles.rowGap = verticalSize
-  if (wrap) otherStyles.flexWrap = "wrap"
+  otherStyles.columnGap = horizontalSize;
+  otherStyles.rowGap = verticalSize;
+  if (wrap) otherStyles.flexWrap = "wrap";
 
   return (
     <div
@@ -94,7 +95,7 @@ const Space: FC<SpaceProps> = (props) => {
     >
       {nodes}
     </div>
-  )
-}
+  );
+};
 
-export default Space
+export default Space;

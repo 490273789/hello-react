@@ -1,7 +1,7 @@
-import { Button, Card, Form, Input, Space, Typography } from "antd"
+import { Button, Card, Form, Input, Space, Typography } from "antd";
 
 const Event = () => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
 
   return (
     <Form
@@ -24,7 +24,7 @@ const Event = () => {
                 extra={
                   <div
                     onClick={() => {
-                      remove(field.name)
+                      remove(field.name);
                     }}
                   >
                     remove{" "}
@@ -43,7 +43,7 @@ const Event = () => {
                         style={{
                           display: "flex",
                           flexDirection: "column",
-                          rowGap: 16
+                          rowGap: 16,
                         }}
                       >
                         {subFields.map((subField) => (
@@ -56,7 +56,7 @@ const Event = () => {
                             </Form.Item>
                             <div
                               onClick={() => {
-                                subOpt.remove(subField.name)
+                                subOpt.remove(subField.name);
                               }}
                             >
                               remove{" "}
@@ -92,7 +92,7 @@ const Event = () => {
         )}
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default Event
+export default Event;

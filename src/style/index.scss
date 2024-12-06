@@ -1,3 +1,6 @@
 @use "./globalStyle";
-@use "./reset";
 @use "./variable.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,7 +1,7 @@
-import Button from "@/components/Button"
-import CusPortal from "./components/CusPortal"
-import MutationObserverUse from "./components/MutationObserverUse"
-import styles from "./index.module.scss"
+import Button from "@/components/Button";
+import CusPortal from "./components/CusPortal";
+import MutationObserverUse from "./components/MutationObserverUse";
+import styles from "./index.module.scss";
 
 function CusComponent() {
   return (
@@ -19,7 +19,7 @@ function CusComponent() {
       <MutationObserverUse />
       <div className="common_block"></div>
     </div>
-  )
+  );
 }
 
-export default CusComponent
+export default CusComponent;

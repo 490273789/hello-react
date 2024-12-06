@@ -11,7 +11,7 @@ const Svg = () => {
         <line x1="20" y1="20" x2="40" y2="40" stroke="black" />
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default Svg
+export default Svg;

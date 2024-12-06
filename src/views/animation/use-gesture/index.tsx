@@ -1,5 +1,5 @@
-import Carousel from "./components/Carousel"
-import Drag from "./components/Drag"
+import Carousel from "./components/Carousel";
+import Drag from "./components/Drag";
 
 function UseGesture() {
   return (
@@ -11,7 +11,7 @@ function UseGesture() {
       <Carousel width={500} />
       <div className="common_block"></div>
     </div>
-  )
+  );
 }
 
-export default UseGesture
+export default UseGesture;

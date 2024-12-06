@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom"
-import ErrorBoundary from "antd/es/alert/ErrorBoundary"
-import style from "./index.module.scss"
-import Navigator from "@/layout/navigator"
+import { Outlet } from "react-router-dom";
+import ErrorBoundary from "antd/es/alert/ErrorBoundary";
+import style from "./index.module.scss";
+import Navigator from "@/layout/navigator";
 
 const Layout = () => {
   return (
@@ -16,7 +16,7 @@ const Layout = () => {
         </ErrorBoundary>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

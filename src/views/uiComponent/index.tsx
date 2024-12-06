@@ -1,24 +1,21 @@
-import { useRef } from "react"
-import Calendar from "@components/Calendar"
-import { Space as AntSpace } from "antd"
-import dayjs from "dayjs"
-import Button from "@/components/Button"
-import { MessageProvider } from "@/components/Message"
-import MiniCalendar, { CalendarRef } from "@/components/MiniCalendar"
-import Space from "@/components/Space"
+import { useRef } from "react";
+import Button from "@/components/Button";
+import { MessageProvider } from "@/components/Message";
+import MiniCalendar, { CalendarRef } from "@/components/MiniCalendar";
+import Space from "@/components/Space";
 
 export default function UIComponent() {
-  const calendarRef = useRef<CalendarRef>(null)
+  const calendarRef = useRef<CalendarRef>(null);
   const handleCalendarChange = (date: Date) => {
-    console.log(date)
-  }
+    console.log(date);
+  };
 
   const getDate = () => {
-    console.log(calendarRef.current?.getDate())
-  }
+    console.log(calendarRef.current?.getDate());
+  };
   const setDate = () => {
-    calendarRef.current?.setDate(new Date("2024/02/08"))
-  }
+    calendarRef.current?.setDate(new Date("2024/02/08"));
+  };
   return (
     <div>
       <MiniCalendar
@@ -63,5 +60,5 @@ export default function UIComponent() {
         <MessageProvider />
       </div>
     </div>
-  )
+  );
 }

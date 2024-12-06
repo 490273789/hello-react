@@ -1,39 +1,39 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 const defaultOptions = {
   childList: true,
   subtree: true,
-  attributeFilter: ["class"]
-}
+  attributeFilter: ["class"],
+};
 
 export interface MutationObserverOptions {
-  childList: boolean
-  subtree: boolean
-  attributeFilter: string[]
+  childList: boolean;
+  subtree: boolean;
+  attributeFilter: string[];
 }
 function useMutationObserver(
   nodeOrList: HTMLElement | HTMLElement[],
   callBack: MutationCallback,
-  options: MutationObserverOptions = defaultOptions
+  options: MutationObserverOptions = defaultOptions,
 ) {
   useEffect(() => {
-    if (!nodeOrList) return
+    if (!nodeOrList) return;
 
-    let instance: MutationObserver
-    const nodeList = Array.isArray(nodeOrList) ? nodeOrList : [nodeOrList]
+    let instance: MutationObserver;
+    const nodeList = Array.isArray(nodeOrList) ? nodeOrList : [nodeOrList];
     if ("MutationObserver" in window) {
-      instance = new MutationObserver(callBack)
-      console.log("🚀 ~ nodeList.forEach ~ options:", options)
+      instance = new MutationObserver(callBack);
+      console.log("🚀 ~ nodeList.forEach ~ options:", options);
       nodeList.forEach((node) => {
-        instance.observe(node, options)
-      })
+        instance.observe(node, options);
+      });
     }
     return () => {
-      instance.takeRecords()
-      instance.disconnect()
-    }
-  }, [nodeOrList, callBack, options])
-  return
+      instance.takeRecords();
+      instance.disconnect();
+    };
+  }, [nodeOrList, callBack, options]);
+  return;
 }
 
-export default useMutationObserver
+export default useMutationObserver;

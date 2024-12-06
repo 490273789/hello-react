@@ -1,7 +1,6 @@
-/* eslint-disable no-restricted-globals */
 /* global importScripts */
 /* global SparkMD5 */
-importScripts('spark-md5.js'); // 导入脚本
+importScripts("spark-md5.js"); // 导入脚本
 
 // 生成文件 hash
 onmessage = (e) => {
@@ -21,7 +20,7 @@ onmessage = (e) => {
       if (count === slices.length) {
         postMessage({
           progress: 100,
-          hash: spark.end()
+          hash: spark.end(),
         });
         // 关闭 worker
         self.close();

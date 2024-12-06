@@ -1,18 +1,19 @@
-import React from "react"
+import React from "react";
+import Button from "@/components/Button";
 
 interface StateMap {
-  number: number
-  age: number
-  money: number
+  number: number;
+  age: number;
+  money: number;
 }
 export default class State extends React.Component<unknown, StateMap> {
   constructor(props: object) {
-    super(props)
+    super(props);
     this.state = {
       number: 1,
       age: 30,
-      money: 0
-    }
+      money: 0,
+    };
     // setTimeout(() => {
     //   this.setState({ number: this.state.number + 1 });
     //   console.log('我是同步的setState：', this.state.number);
@@ -20,20 +21,20 @@ export default class State extends React.Component<unknown, StateMap> {
   }
   componentDidMount() {
     this.setState({
-      number: 10
-    })
-    console.log("number1 ", this.state.number)
+      number: 10,
+    });
+    console.log("number1 ", this.state.number);
 
     setTimeout(() => {
       this.setState({
-        number: 11
-      })
-      console.log("setTimeout1 ", this.state.number)
+        number: 11,
+      });
+      console.log("setTimeout1 ", this.state.number);
       this.setState({
-        number: 12
-      })
-      console.log("setTimeout2 ", this.state.number)
-    })
+        number: 12,
+      });
+      console.log("setTimeout2 ", this.state.number);
+    });
   }
 
   handleChangeNumber() {
@@ -42,44 +43,39 @@ export default class State extends React.Component<unknown, StateMap> {
     // this.setState({ number: newNumber });
     // 方法2
     this.setState({ number: this.state.number + 1 }, () => {
-      console.log("state:", this.state.number)
-    })
-    console.log("我是异步的setState：", this.state.number)
+      console.log("state:", this.state.number);
+    });
+    console.log("我是异步的setState：", this.state.number);
   }
 
   handleChangeMoney() {
-    this.setState((state: StateMap) => ({ money: state.money + 1 }))
-    this.setState((state: StateMap) => ({ money: state.money + 1 }))
-    this.setState((state: StateMap) => ({ money: state.money + 1 }))
-    console.log("我是异步的setState：", this.state.money)
+    this.setState((state: StateMap) => ({ money: state.money + 1 }));
+    this.setState((state: StateMap) => ({ money: state.money + 1 }));
+    this.setState((state: StateMap) => ({ money: state.money + 1 }));
+    console.log("我是异步的setState：", this.state.money);
   }
 
   handleChangeAge() {
-    this.setState({ age: this.state.age + 1 })
-    this.setState({ age: this.state.age + 1 })
-    this.setState({ age: this.state.age + 1 })
+    this.setState({ age: this.state.age + 1 });
+    this.setState({ age: this.state.age + 1 });
+    this.setState({ age: this.state.age + 1 });
   }
 
   render() {
-    console.log("render")
+    console.log("render");
     return (
       <>
         <h1 className="content_title">状态和组件传值</h1>
         <div className="common_block">
           <div>number:{this.state.number}</div>
-          <div
-            className="common_button"
-            onClick={() => this.handleChangeNumber()}
-          >
-            改变number
-          </div>
+          <Button onClick={() => this.handleChangeNumber()}> 改变number</Button>
         </div>
 
         <div className="common_block">
           <div>age:{this.state.age}</div>
-          <div className="common_button" onClick={() => this.handleChangeAge()}>
-            多次改变age
-          </div>
+
+          <Button onClick={() => this.handleChangeAge()}> 多次改变age </Button>
+
           <div className="comment_part">
             1、多次调用state.age+1,react呢不会用Object.assign()进行合并，最终只会+1，页面也只会渲染一次。
           </div>
@@ -92,17 +88,12 @@ export default class State extends React.Component<unknown, StateMap> {
         </div>
         <div className="common_block">
           <div>money:{this.state.money}</div>
-          <div
-            className="common_button"
-            onClick={() => this.handleChangeMoney()}
-          >
-            改变money
-          </div>
+          <Button onClick={() => this.handleChangeMoney()}> 改变money </Button>
           <div className="comment_part">
             1、用回调函数的方式调用三次，都会执行，最终+3，渲染只会渲染一次
           </div>
         </div>
       </>
-    )
+    );
   }
 }
