@@ -27,9 +27,10 @@ export default function RouteIndex() {
   return (
     <div>
       <div className="content-title">路由跳转</div>
-      <Button onClick={() => handleJump1}> 跳转search方式 </Button>
-      <Button onClick={() => handleJump2}> 跳转params方式 </Button>
-      <Button onClick={() => handleJump3}> 跳转state方式 </Button>
+
+      <Button onClick={handleJump1}> 跳转search方式 </Button>
+      <Button onClick={handleJump2}> 跳转params方式 </Button>
+      <Button onClick={handleJump3}> 跳转state方式 </Button>
       <Outlet />
     </div>
   );

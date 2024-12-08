@@ -1,33 +1,44 @@
-import { ChangeEvent, useCallback } from "react";
 import Button from "@/components/Button";
-import useForm from "@/hooks/useForm";
 
 export default function Form() {
-  const [formState, setFormValue, resetFormValues] = useForm({
-    userName: "",
-    email: "",
-  });
-  const setUserName = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) =>
-      setFormValue("userName", e.target.value),
-    [setFormValue],
-  );
-  const setEmail = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => setFormValue("email", e.target.value),
-    [setFormValue],
-  );
+  const formAction = (formData: FormData) => {
+    console.log("[ formData ] >", formData.get("name"));
+  };
   return (
     <>
-      <div className="content_title">useForm使用</div>
-      <form>
-        <label>用户名</label>
-        <input type="text" value={formState.userName} onChange={setUserName} />
+      <div className="content_title">form组件使用</div>
+      <form action={formAction}>
+        <div className="mb-2">
+          <label
+            htmlFor="name"
+            className="mr-2 w-[60px] inline-block text-right"
+          >
+            用户名:
+          </label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            className="bg-c-yellow rounded-md px-2 py-1"
+          />
+        </div>
 
-        <label>邮箱</label>
-        <input type="text" value={formState.email} onChange={setEmail} />
         <div>
-          <Button onClick={() => console.log(formState)}> 提交 </Button>
-          <Button onClick={resetFormValues}> 充值 </Button>
+          <label
+            htmlFor="email"
+            className="mr-2 w-[60px] inline-block text-right"
+          >
+            邮箱:
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            className="bg-c-yellow rounded-md px-2 py-1"
+          />
+        </div>
+        <div>
+          <Button type="submit"> 提交 </Button>
         </div>
       </form>
     </>

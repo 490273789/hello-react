@@ -9,8 +9,8 @@ const TimeSlice = () => {
   };
   return (
     <div>
-      <Button onClick={handleShow}>show</Button>
-      {show && <DrawCircle />}
+      <Button onClick={handleShow}>{show ? "hide" : "show"}</Button>
+      <div className="mt-5">{show && <DrawCircle />}</div>
     </div>
   );
 };

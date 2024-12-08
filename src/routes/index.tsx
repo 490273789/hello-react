@@ -77,7 +77,7 @@ export const routes: IRouteObject[] = [
       {
         path: "/form",
         element: <Form />,
-        meta: { title: "useForm" },
+        meta: { title: "form" },
       },
       {
         path: "/animation",

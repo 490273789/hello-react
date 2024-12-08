@@ -4,7 +4,7 @@ import useStore from "@/stores";
 
 const Zustand = () => {
   console.log(useStore);
-  const age = useStore((state) => state.age);
+  const age = useStore((state: number) => state.age);
   const setAge = useStore((state) => state.setAge);
 
   const [active, setActive] = useState("1");
