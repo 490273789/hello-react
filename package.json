@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.4.0",
     "@better-scroll/core": "^2.5.1",
     "@ctrl/tinycolor": "^4.1.0",
     "@react-spring/web": "^9.7.5",
