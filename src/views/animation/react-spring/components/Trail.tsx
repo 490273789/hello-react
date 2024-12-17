@@ -1,18 +1,18 @@
-import { animated, useTrail } from "@react-spring/web"
-import styles from "../index.module.scss"
+import { animated, useTrail } from "@react-spring/web";
+import styles from "../index.module.scss";
 
 const Trail = () => {
   const [trail, api] = useTrail(3, () => ({
     from: { width: 40 },
-    config: { duration: 1000 }
-  }))
+    config: { duration: 1000 },
+  }));
 
   const handleMouseEnter = () => {
-    api.start({ width: 300 })
-  }
+    api.start({ width: 300 });
+  };
   const handleMouseLeave = () => {
-    api.start({ width: 40 })
-  }
+    api.start({ width: 40 });
+  };
   return (
     <>
       <div className="comment_part">多个元素不同步的情况使用useTrail</div>
@@ -27,7 +27,7 @@ const Trail = () => {
         />
       ))}
     </>
-  )
-}
+  );
+};
 
-export default Trail
+export default Trail;

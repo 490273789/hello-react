@@ -1,61 +1,65 @@
-import React, { useImperativeHandle, useState } from "react"
-import classNames from "classnames"
-import styles from "./index.module.scss"
+import React, { useImperativeHandle, useState } from "react";
+import classNames from "classnames";
+import styles from "./index.module.scss";
 interface CalendarProps {
-  value?: Date
-  onChange?: (date: Date) => void
+  value?: Date;
+  onChange?: (date: Date) => void;
 }
 
 export interface CalendarRef {
-  getDate: () => Date
-  setDate: (date: Date) => void
+  getDate: () => Date;
+  setDate: (date: Date) => void;
 }
 const Calendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProps> = (
   { value = new Date(), onChange },
-  ref
+  ref,
 ) => {
   /** 保存当前时间 */
-  const [date, setDate] = useState(value)
+  const [date, setDate] = useState(value);
   /** 上个月 */
   const handlePreMonth = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1))
-  }
+    setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+  };
   /** 下个月 */
   const handleNextMonth = () => {
-    setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1))
-  }
+    setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+  };
 
   /** 当前选择月份的天数 */
   const daysOfMonth = (year: number, month: number) => {
-    return new Date(year, month + 1, 0).getDate()
-  }
+    return new Date(year, month + 1, 0).getDate();
+  };
 
   /** 获取当前月份的第一天 */
   const firstDayOfMonth = (year: number, month: number) => {
     // getDay 获取今天使星期几
-    return new Date(year, month, 1).getDay()
-  }
+    return new Date(year, month, 1).getDay();
+  };
 
   /** 渲染每月的天数 */
   const renderDays = () => {
-    const days = []
-    const daysCount = daysOfMonth(date.getFullYear(), date.getMonth())
-    const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth())
+    const days = [];
+    const daysCount = daysOfMonth(date.getFullYear(), date.getMonth());
+    const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
 
     for (let i = 0; i < firstDay; i++) {
-      const preDay = new Date(date.getFullYear(), date.getMonth(), -i).getDate()
+      const preDay = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        -i,
+      ).getDate();
       days.push(
         <div key={`pre-empty-${i}`} className={styles.empty}>
           {preDay}
-        </div>
-      )
+        </div>,
+      );
     }
 
     for (let i = 1; i <= daysCount; i++) {
       const clickHandler = onChange?.bind(
         null,
-        new Date(date.getFullYear(), date.getMonth(), 1)
-      )
+        new Date(date.getFullYear(), date.getMonth(), 1),
+      );
       if (i === date.getDate()) {
         days.push(
           <div
@@ -64,28 +68,28 @@ const Calendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProps> = (
             onClick={clickHandler}
           >
             {i}
-          </div>
-        )
+          </div>,
+        );
       } else {
         days.push(
           <div key={i} className={styles.day} onClick={clickHandler}>
             {i}
-          </div>
-        )
+          </div>,
+        );
       }
     }
-    const nextDay = 7 - ((firstDay + daysCount) % 7)
+    const nextDay = 7 - ((firstDay + daysCount) % 7);
 
     for (let i = 0; i < nextDay; i++) {
       days.push(
         <div key={`last-empty-${i}`} className={styles.empty}>
           {i + 1}
-        </div>
-      )
+        </div>,
+      );
     }
 
-    return days
-  }
+    return days;
+  };
   /** 月份的映射 */
   const monthNames = [
     "一月",
@@ -99,15 +103,15 @@ const Calendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProps> = (
     "九月",
     "十月",
     "十一月",
-    "十二月"
-  ]
+    "十二月",
+  ];
 
   useImperativeHandle(ref, () => {
     return {
       getDate: () => date,
-      setDate: (date) => setDate(date)
-    }
-  })
+      setDate: (date) => setDate(date),
+    };
+  });
   return (
     <div className={styles.calendar}>
       <div className={styles.header}>
@@ -128,7 +132,7 @@ const Calendar: React.ForwardRefRenderFunction<CalendarRef, CalendarProps> = (
         {renderDays()}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default React.forwardRef(Calendar)
+export default React.forwardRef(Calendar);

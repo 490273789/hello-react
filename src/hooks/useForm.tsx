@@ -15,7 +15,7 @@ export default function useForm<T>(initialValues: T) {
   );
   const resetFormValues = useCallback(() => {
     setFormData(initialValues);
-  }, []);
+  }, [initialValues]);
 
   return [formData, setFormValue, resetFormValues] as const;
 }

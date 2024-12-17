@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from "react";
 
 // @babel/plugin-syntax-jsx ： 使用这个插件，能够让 Babel 有效的解析 JSX 语法。
 // @babel/plugin-transform-react-jsx ：这个插件内部调用了 @babel/plugin-syntax-jsx，可以把 React JSX 转化成 JS 能够识别的 createElement 格式。
 
-const typeList = ["react", "vue", "angular"]
-const TextComponent = () => <div>我是组件</div>
+const typeList = ["react", "vue", "angular"];
+const TextComponent = () => <div>我是组件</div>;
 
 // class Jsx extends React.Component {
 //   status = false
@@ -37,8 +37,8 @@ const TextComponent = () => <div>我是组件</div>
 //   }
 // }
 class Jsx extends React.Component {
-  status = false /* 状态 */
-  renderFoot = () => <div> I&apos;m foot</div>
+  status = false; /* 状态 */
+  renderFoot = () => <div> I&apos;m foot</div>;
   /* 控制渲染 */
   controlRender = () => {
     const reactElement = (
@@ -65,10 +65,10 @@ class Jsx extends React.Component {
           打印render后的内容
         </button>
       </div>
-    )
-    console.log("🚀 ~ Jsx ~ reactElement:", reactElement)
-    const { children } = reactElement.props
-    console.log("🚀 ~ Jsx ~ children:", children)
+    );
+    console.log("🚀 ~ Jsx ~ reactElement:", reactElement);
+    const { children } = reactElement.props;
+    console.log("🚀 ~ Jsx ~ children:", children);
 
     /**
      * 扁平化 children API
@@ -76,8 +76,8 @@ class Jsx extends React.Component {
      * 只要 children 中的数组元素被打开，对遍历 children 很有帮助，
      * 而且 React.Children.toArray 还可以深层次 flat 。
      */
-    const flatChildren = React.Children.toArray(children)
-    console.log("🚀 ~ Jsx ~ flatChildren:", flatChildren)
+    const flatChildren = React.Children.toArray(children);
+    console.log("🚀 ~ Jsx ~ flatChildren:", flatChildren);
 
     /**
      * 第1步 ：扁平化 children , 除去文本节点
@@ -86,20 +86,20 @@ class Jsx extends React.Component {
      * React.Children.forEach = React.Children.toArray + Array.prototype.forEach
      * React.Children.forEach 本身就可以把 children 扁平化了
      */
-    const newChildren: ReactElement[] = []
+    const newChildren: ReactElement[] = [];
     React.Children.forEach(children, (item) => {
-      if (React.isValidElement(item)) newChildren.push(item)
-    })
-    console.log("🚀 ~ Jsx ~ newChildren:", newChildren)
+      if (React.isValidElement(item)) newChildren.push(item);
+    });
+    console.log("🚀 ~ Jsx ~ newChildren:", newChildren);
 
     /* 第2步，插入新的节点 */
     // 等同于 newChildren.push(<div className="last" >say goodbye</div>)
     const lastChildren = React.createElement(
       `div`,
       { className: "last" },
-      `say goodbye`
-    )
-    newChildren.push(lastChildren)
+      `say goodbye`,
+    );
+    newChildren.push(lastChildren);
 
     /**
      * 第3步：修改容器节点
@@ -109,12 +109,16 @@ class Jsx extends React.Component {
      * 这里 React.cloneElement 做的事情就是，把 reactElement 复制一份，
      * 再用新的 children 属性，从而达到改变 render 结果的目的。
      */
-    const newReactElement = React.cloneElement(reactElement, {}, ...newChildren)
-    console.log("newReactElement:", newReactElement)
-    return newReactElement
-  }
+    const newReactElement = React.cloneElement(
+      reactElement,
+      {},
+      ...newChildren,
+    );
+    console.log("newReactElement:", newReactElement);
+    return newReactElement;
+  };
   render() {
-    return this.controlRender()
+    return this.controlRender();
   }
 }
-export default React.memo(Jsx)
+export default React.memo(Jsx);

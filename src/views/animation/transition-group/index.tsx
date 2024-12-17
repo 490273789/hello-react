@@ -1,5 +1,5 @@
-import Transition from "./components/Transition"
-import TransitionGroupUse from "./components/TransitionGroupUse"
+import Transition from "./components/Transition";
+import TransitionGroupUse from "./components/TransitionGroupUse";
 
 function TransitionGroup() {
   return (
@@ -20,7 +20,7 @@ function TransitionGroup() {
       <TransitionGroupUse />
       <div className="common_block"></div>
     </div>
-  )
+  );
 }
 
-export default TransitionGroup
+export default TransitionGroup;

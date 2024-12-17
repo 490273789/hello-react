@@ -1,14 +1,14 @@
 const validate = (input) => {
-  const inputArr = input.trim().split("\n")
+  const inputArr = input.trim().split("\n");
   // const regName = /^([a-zA-Z])(?=.*[0-9])[a-zA-Z]/;
-  const regName = /^[a-zA-Z][a-zA-Z]*[0-9]+[a-zA-Z]*/
-  let result = ""
+  const regName = /^[a-zA-Z][a-zA-Z]*[0-9]+[a-zA-Z]*/;
+  let result = "";
   for (let i = 1, len = +inputArr[0]; i <= len; i++) {
-    if (regName.test(inputArr[i])) result += "Accept\n"
-    else result += "Wrong\n"
+    if (regName.test(inputArr[i])) result += "Accept\n";
+    else result += "Wrong\n";
   }
-  return result
-}
+  return result;
+};
 
 const input = `
 7
@@ -19,6 +19,6 @@ Hhhh666h6
 ABCD
 Meituan
 6666
-`
+`;
 
-console.log(validate(input))
+console.log(validate(input));

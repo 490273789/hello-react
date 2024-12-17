@@ -1,11 +1,11 @@
-import { ReactNode, Suspense } from "react"
+import { ReactNode, Suspense } from "react";
 import {
   Navigate,
   NonIndexRouteObject,
-  createBrowserRouter
-} from "react-router-dom"
+  createBrowserRouter,
+} from "react-router-dom";
 
-import Loading from "@/components/Loading"
+import Loading from "@/components/Loading";
 import {
   Jsx,
   Event,
@@ -27,20 +27,20 @@ import {
   TransitionGroup,
   CusComponent,
   Common,
-  TimeSlice
-} from "./lazyRoute"
-import Layout from "@/layout"
+  TimeSlice,
+} from "./lazyRoute";
+import Layout from "@/layout";
 
 export interface MetaProps {
-  keepAlive?: boolean
-  requiresAuth?: boolean
-  title: string
-  key?: string
+  keepAlive?: boolean;
+  requiresAuth?: boolean;
+  title: string;
+  key?: string;
 }
 
 interface IRouteObject extends NonIndexRouteObject {
-  children?: IRouteObject[]
-  meta?: MetaProps
+  children?: IRouteObject[];
+  meta?: MetaProps;
 }
 
 export const routes: IRouteObject[] = [
@@ -52,37 +52,37 @@ export const routes: IRouteObject[] = [
       {
         path: "/",
         element: <Jsx />,
-        meta: { title: "jsx" }
+        meta: { title: "jsx" },
       },
       {
         path: "/event",
         element: <Event />,
-        meta: { title: "事件" }
+        meta: { title: "事件" },
       },
       {
         path: "/this",
         element: <This />,
-        meta: { title: "this" }
+        meta: { title: "this" },
       },
       {
         path: "/state",
         element: <State />,
-        meta: { title: "state & props" }
+        meta: { title: "state & props" },
       },
       {
         path: "/drag",
         element: <Drag />,
-        meta: { title: "useDrag" }
+        meta: { title: "useDrag" },
       },
       {
         path: "/form",
         element: <Form />,
-        meta: { title: "useForm" }
+        meta: { title: "useForm" },
       },
       {
         path: "/animation",
         element: <Animation />,
-        meta: { title: "useAnimation" }
+        meta: { title: "useAnimation" },
       },
       {
         path: "/reactRoute",
@@ -92,78 +92,78 @@ export const routes: IRouteObject[] = [
           {
             path: "pageOne",
             element: <PageOne />,
-            meta: { title: "pageOne" }
+            meta: { title: "pageOne" },
           },
           {
             path: "pageTwo/:id",
             element: <PageTwo />,
-            meta: { title: "pageTwo" }
+            meta: { title: "pageTwo" },
           },
           {
             path: "pageThree",
             element: <PageThree />,
-            meta: { title: "pageThree" }
-          }
-        ]
+            meta: { title: "pageThree" },
+          },
+        ],
       },
 
       {
         path: "/hooks",
         element: <Hooks />,
-        meta: { title: "hooks" }
+        meta: { title: "hooks" },
       },
       {
         path: "/use-callback",
         element: <UseCallback />,
-        meta: { title: "useCallback" }
+        meta: { title: "useCallback" },
       },
       {
         path: "/ui-component",
         element: <UiComponent />,
-        meta: { title: "自定义组件" }
+        meta: { title: "自定义组件" },
       },
       {
         path: "/zustand",
         element: <Zustand />,
-        meta: { title: "zustand" }
+        meta: { title: "zustand" },
       },
       {
         path: "/react-spring",
         element: <ReactSpring />,
-        meta: { title: "react-spring" }
+        meta: { title: "react-spring" },
       },
       {
         path: "/use-gesture",
         element: <UseGesture />,
-        meta: { title: "use-gesture" }
+        meta: { title: "use-gesture" },
       },
       {
         path: "/transition-group",
         element: <TransitionGroup />,
-        meta: { title: "transition-group" }
+        meta: { title: "transition-group" },
       },
       {
         path: "cus-component",
         element: <CusComponent />,
-        meta: { title: "cus-component" }
+        meta: { title: "cus-component" },
       },
       {
         path: "/common",
         element: <Common />,
-        meta: { title: "common" }
+        meta: { title: "common" },
       },
       {
         path: "/time-slice",
         element: <TimeSlice />,
-        meta: { title: "time-slice" }
-      }
-    ]
+        meta: { title: "time-slice" },
+      },
+    ],
   },
   {
     path: "*",
-    element: <Navigate to="/" />
-  }
-]
+    element: <Navigate to="/" />,
+  },
+];
 
 /**
  * 组件设置suspense
@@ -171,16 +171,16 @@ export const routes: IRouteObject[] = [
  * @returns
  */
 const setRouteSuspense = (component: ReactNode): ReactNode => {
-  return <Suspense fallback={<Loading />}>{component}</Suspense>
-}
+  return <Suspense fallback={<Loading />}>{component}</Suspense>;
+};
 const traversalRouter = (routes: IRouteObject[]) => {
   routes.forEach((route) => {
-    if (route.element) route.element = setRouteSuspense(route.element)
-    if (route.children) traversalRouter(route.children)
-  })
-}
+    if (route.element) route.element = setRouteSuspense(route.element);
+    if (route.children) traversalRouter(route.children);
+  });
+};
 
-traversalRouter(routes)
-const finalRoutes = createBrowserRouter(routes)
+traversalRouter(routes);
+const finalRoutes = createBrowserRouter(routes);
 
-export default finalRoutes
+export default finalRoutes;

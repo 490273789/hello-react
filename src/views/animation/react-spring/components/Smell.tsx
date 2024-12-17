@@ -3,9 +3,9 @@ import {
   useChain,
   useSprings,
   animated,
-  useSpringRef
-} from "@react-spring/web"
-import styles from "../index.module.scss"
+  useSpringRef,
+} from "@react-spring/web";
+import styles from "../index.module.scss";
 
 /** 笑脸坐标 */
 const COORDS = [
@@ -15,38 +15,38 @@ const COORDS = [
   [60, 60],
   [70, 60],
   [80, 60],
-  [90, 50]
-]
+  [90, 50],
+];
 
 /** 画笔的粗细 */
-const STROKE_WIDTH = 0.5
+const STROKE_WIDTH = 0.5;
 /** 最大宽度 */
-const MAX_WIDTH = 150
+const MAX_WIDTH = 150;
 /** 最大高度 */
-const MAX_HEIGHT = 100
+const MAX_HEIGHT = 100;
 
 const Smell = () => {
   /** 表格动画 */
-  const gridApi = useSpringRef()
+  const gridApi = useSpringRef();
 
   const gridSprings = useTrail(16, {
     ref: gridApi,
     from: { x2: 0, y2: 0 },
-    to: { x2: MAX_WIDTH, y2: MAX_HEIGHT }
-  })
+    to: { x2: MAX_WIDTH, y2: MAX_HEIGHT },
+  });
 
   /** 笑脸动画 */
-  const boxApi = useSpringRef()
+  const boxApi = useSpringRef();
 
   const [boxSprings] = useSprings(7, (i) => ({
     ref: boxApi,
     from: { scale: 0 },
     to: { scale: 1 },
     delay: i * 200,
-    config: { mass: 2, tension: 220 }
-  }))
+    config: { mass: 2, tension: 220 },
+  }));
 
-  useChain([gridApi, boxApi], [0, 1], 1500)
+  useChain([gridApi, boxApi], [0, 1], 1500);
 
   return (
     <div className={styles["smell-box"]}>
@@ -84,12 +84,12 @@ const Smell = () => {
             style={{
               transform: `translate(${COORDS[index][0]}px, ${COORDS[index][1]}px)`,
               transformOrigin: `5px 5px`,
-              scale
+              scale,
             }}
           />
         ))}
       </svg>
     </div>
-  )
-}
-export default Smell
+  );
+};
+export default Smell;

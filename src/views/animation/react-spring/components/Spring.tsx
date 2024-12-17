@@ -1,20 +1,20 @@
-import { animated, useSpring } from "@react-spring/web"
-import styles from "../index.module.scss"
+import { animated, useSpring } from "@react-spring/web";
+import styles from "../index.module.scss";
 
 const Spring = () => {
   /** 多个变量变化用useSpring */
   const [style, api] = useSpring(() => ({
     from: { width: 80, height: 40 },
-    config: { mass: 2, friction: 15, tension: 150 }
-  }))
+    config: { mass: 2, friction: 15, tension: 150 },
+  }));
 
   const handleBox2MouseEnter = () => {
-    api.start({ width: 400, height: 100 })
-  }
+    api.start({ width: 400, height: 100 });
+  };
 
   const handleBox2MouseMove = () => {
-    api.start({ width: 80, height: 40 })
-  }
+    api.start({ width: 80, height: 40 });
+  };
   return (
     <div className={styles["box-height"]}>
       <div className="comment_part">Q弹动画</div>
@@ -27,7 +27,7 @@ const Spring = () => {
         onMouseLeave={handleBox2MouseMove}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Spring
+export default Spring;

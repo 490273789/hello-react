@@ -1,29 +1,29 @@
-import React, { MouseEvent } from "react"
+import React, { MouseEvent } from "react";
 
 class This extends React.Component<unknown> {
   constructor(props: object) {
-    super(props)
-    console.log(props)
-    this.clickHandle3 = this.clickHandle3.bind(this)
+    super(props);
+    console.log(props);
+    this.clickHandle3 = this.clickHandle3.bind(this);
   }
   clickHandle1(e: MouseEvent, str: string) {
-    console.log(this, e, str)
-    alert("hello1")
+    console.log(this, e, str);
+    alert("hello1");
   }
 
   clickHandle2 = () => {
-    console.log(this)
-    alert("hello2")
-  }
+    console.log(this);
+    alert("hello2");
+  };
 
   clickHandle3() {
-    console.log(this)
-    alert("hello3")
+    console.log(this);
+    alert("hello3");
   }
 
   clickHandle4(str: string) {
-    console.log(this, str)
-    alert("hello1")
+    console.log(this, str);
+    alert("hello1");
   }
   render() {
     return (
@@ -35,7 +35,7 @@ class This extends React.Component<unknown> {
         <div onClick={this.clickHandle3}>this绑定方式3</div>
         <div onClick={this.clickHandle4.bind(this, "str")}>this绑定方式4</div>
       </div>
-    )
+    );
   }
 }
-export default This
+export default This;

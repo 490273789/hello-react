@@ -35,7 +35,7 @@ const Common = () => {
         #ff6699
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Common
+export default Common;
