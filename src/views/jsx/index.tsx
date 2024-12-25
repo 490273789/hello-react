@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import Button2 from "@/components/Button2";
 
 // @babel/plugin-syntax-jsx ： 使用这个插件，能够让 Babel 有效的解析 JSX 语法。
 // @babel/plugin-transform-react-jsx ：这个插件内部调用了 @babel/plugin-syntax-jsx，可以把 React JSX 转化成 JS 能够识别的 createElement 格式。
@@ -61,9 +62,9 @@ class Jsx extends React.Component {
         {this.status ? <TextComponent /> : <div>三元运算</div>}
         {/* 函数执行 */}
         {this.renderFoot()}
-        <button onClick={() => console.log(this.render())}>
+        <Button2 onClick={() => console.log(this.render())}>
           打印render后的内容
-        </button>
+        </Button2>
       </div>
     );
     console.log("🚀 ~ Jsx ~ reactElement:", reactElement);

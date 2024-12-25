@@ -16,7 +16,7 @@ const Header = (props: HeaderProps) => {
 
   const CalendarLocale = allLocales[localeContext.locale];
   return (
-    <div className={styles["calendar-header"]}>
+    <div>
       <div className={styles["calendar-header-left"]}>
         <div
           className={styles["calendar-header-icon"]}
