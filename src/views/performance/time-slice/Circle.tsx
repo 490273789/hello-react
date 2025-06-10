@@ -1,6 +1,8 @@
 import { useMemo } from "react";
-import { Position } from "./DrawCircle";
+
 import styles from "./index.module.scss";
+
+import type { Position } from "./DrawCircle";
 const getColor = () => {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);

@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import Button from "@/components/Button";
+
 import DrawCircle from "./DrawCircle";
 
 const TimeSlice = () => {
@@ -9,7 +11,9 @@ const TimeSlice = () => {
   };
   return (
     <div>
-      <Button onClick={handleShow}>show</Button>
+      <Button className="mb-2" onClick={handleShow}>
+        show
+      </Button>
       {show && <DrawCircle />}
     </div>
   );

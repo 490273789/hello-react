@@ -1,7 +1,9 @@
 import { useRef } from "react";
+
 import Button from "@/components/Button";
 import { MessageProvider } from "@/components/Message";
-import MiniCalendar, { CalendarRef } from "@/components/MiniCalendar";
+import type { CalendarRef } from "@/components/MiniCalendar";
+import MiniCalendar from "@/components/MiniCalendar";
 import Space from "@/components/Space";
 
 export default function UIComponent() {

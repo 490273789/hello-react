@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MessageProps, Position } from ".";
+
+import type { MessageProps, Position } from ".";
 
 type MessageList = {
   top: MessageProps[];

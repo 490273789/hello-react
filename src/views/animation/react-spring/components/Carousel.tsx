@@ -1,6 +1,11 @@
-import { CSSProperties, ReactElement, useState } from "react";
-import { AnimatedProps, animated, useTransition } from "@react-spring/web";
+import type { CSSProperties, ReactElement } from "react";
+import { useState } from "react";
+
+import { animated, useTransition } from "@react-spring/web";
+
 import styles from "../index.module.scss";
+
+import type { AnimatedProps } from "@react-spring/web";
 
 interface PageItem {
   (props: AnimatedProps<{ style: CSSProperties }>): ReactElement;

@@ -1,11 +1,13 @@
-import { ReactNode, Suspense } from "react";
-import {
-  Navigate,
-  NonIndexRouteObject,
-  createBrowserRouter,
-} from "react-router-dom";
+import type { ReactNode } from "react";
+import { Suspense } from "react";
+
+import type { NonIndexRouteObject } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import Loading from "@/components/Loading";
+
+import Layout from "@/layout";
+
 import {
   Jsx,
   Event,
@@ -29,7 +31,6 @@ import {
   Common,
   TimeSlice,
 } from "./lazyRoute";
-import Layout from "@/layout";
 
 export interface MetaProps {
   keepAlive?: boolean;

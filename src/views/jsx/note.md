@@ -64,21 +64,21 @@ step3：结果(虚拟DOM)
 React 针对不同 React element 对象会产生不同 tag (种类) 的fiber 对象。首先，来看一下 tag 与 element 的对应关系：
 
 ```javascript
-export const FunctionComponent = 0 // 函数组件
-export const ClassComponent = 1 // 类组件
-export const IndeterminateComponent = 2 // 初始化的时候不知道是函数组件还是类组件
-export const HostRoot = 3 // Root Fiber 可以理解为根元素 ， 通过reactDom.render()产生的根元素
-export const HostPortal = 4 // 对应  ReactDOM.createPortal 产生的 Portal
-export const HostComponent = 5 // dom 元素 比如 <div>
-export const HostText = 6 // 文本节点
-export const Fragment = 7 // 对应 <React.Fragment>
-export const Mode = 8 // 对应 <React.StrictMode>
-export const ContextConsumer = 9 // 对应 <Context.Consumer>
-export const ContextProvider = 10 // 对应 <Context.Provider>
-export const ForwardRef = 11 // 对应 React.ForwardRef
-export const Profiler = 12 // 对应 <Profiler/ >
-export const SuspenseComponent = 13 // 对应 <Suspense>
-export const MemoComponent = 14 // 对应 React.memo 返回的组件
+export const FunctionComponent = 0; // 函数组件
+export const ClassComponent = 1; // 类组件
+export const IndeterminateComponent = 2; // 初始化的时候不知道是函数组件还是类组件
+export const HostRoot = 3; // Root Fiber 可以理解为根元素 ， 通过reactDom.render()产生的根元素
+export const HostPortal = 4; // 对应  ReactDOM.createPortal 产生的 Portal
+export const HostComponent = 5; // dom 元素 比如 <div>
+export const HostText = 6; // 文本节点
+export const Fragment = 7; // 对应 <React.Fragment>
+export const Mode = 8; // 对应 <React.StrictMode>
+export const ContextConsumer = 9; // 对应 <Context.Consumer>
+export const ContextProvider = 10; // 对应 <Context.Provider>
+export const ForwardRef = 11; // 对应 React.ForwardRef
+export const Profiler = 12; // 对应 <Profiler/ >
+export const SuspenseComponent = 13; // 对应 <Suspense>
+export const MemoComponent = 14; // 对应 React.memo 返回的组件
 ```
 
 ### fiber 对应关系

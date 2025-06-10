@@ -1,4 +1,5 @@
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
+
 import cs from "classnames";
 
 export interface ColorPickerProps {

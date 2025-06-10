@@ -1,10 +1,6 @@
-import {
-  Ref,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-} from "react";
+import type { Ref } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useMemo } from "react";
+
 import { createPortal } from "react-dom";
 
 interface CusPortalProps {

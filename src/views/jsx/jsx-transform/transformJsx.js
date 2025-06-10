@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "fs";
+
 import { transformSync } from "@babel/core";
 
 readFile("./element.jsx", (e, data) => {

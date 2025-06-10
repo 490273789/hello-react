@@ -1,4 +1,5 @@
 import { animated, useSprings } from "@react-spring/web";
+
 import styles from "../index.module.scss";
 
 const Springs = () => {

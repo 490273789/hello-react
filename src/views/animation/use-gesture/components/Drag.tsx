@@ -1,5 +1,6 @@
 import { animated, useSpring } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
+
 import styles from "../index.module.scss";
 
 function Drag() {

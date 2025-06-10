@@ -1,7 +1,11 @@
 import { useState } from "react";
+
 import { CSSTransition } from "react-transition-group";
+
 import Button from "@/components/Button";
+
 import styles from "../index.module.scss";
+
 import "./transition.scss";
 
 function Transition() {

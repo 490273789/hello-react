@@ -1,10 +1,13 @@
 import { useContext } from "react";
+
 import cs from "classnames";
-import { Dayjs } from "dayjs";
+
 import styles from "./index.module.scss";
 import allLocales from "./locale";
 import LocaleContext from "./LocaleContext";
-import { CalendarProps } from ".";
+
+import type { CalendarProps } from ".";
+import type { Dayjs } from "dayjs";
 
 interface DaysInfo {
   date: Dayjs;

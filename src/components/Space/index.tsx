@@ -1,13 +1,11 @@
-import {
-  CSSProperties,
-  Fragment,
-  HTMLAttributes,
-  useContext,
-  useMemo,
-} from "react";
-import { FC, Children } from "react";
+import type { CSSProperties, HTMLAttributes } from "react";
+import type { FC } from "react";
+import { Fragment, useContext, useMemo } from "react";
+import { Children } from "react";
+
 export type SizeType = "small" | "middle" | "large" | number | undefined;
 import cn from "classnames";
+
 import "./index.scss";
 import { ConfigContext } from "./ConfigProvider";
 

@@ -1,4 +1,5 @@
 import { lazy } from "react";
+
 import Jsx from "@/views/jsx";
 
 const Event = lazy(() => import(`@/views/event`));

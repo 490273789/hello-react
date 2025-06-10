@@ -1,8 +1,11 @@
-import { CSSProperties, FC, ReactNode, useEffect, useMemo } from "react";
+import type { CSSProperties, FC, ReactNode } from "react";
+import { useEffect, useMemo } from "react";
+
 import { createPortal } from "react-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import useStore from "./useStore";
+
 import "./index.scss";
+import useStore from "./useStore";
 
 export type Position = "top" | "bottom";
 
@@ -15,7 +18,7 @@ export interface MessageProps {
   position?: Position;
 }
 
-export const MessageProvider: FC<{}> = (props) => {
+export const MessageProvider = (props) => {
   const { messageList, add, update, remove, clearAll } = useStore("top");
 
   useEffect(() => {

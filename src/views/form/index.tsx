@@ -1,4 +1,6 @@
-import { ChangeEvent, useCallback } from "react";
+import type { ChangeEvent } from "react";
+import { useCallback } from "react";
+
 import useForm from "@/hooks/useForm";
 
 export default function Form() {

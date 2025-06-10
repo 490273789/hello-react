@@ -1,6 +1,9 @@
 import { useState } from "react";
+
 import { animated, useTransition } from "@react-spring/web";
+
 import Button from "@/components/Button";
+
 import styles from "../index.module.scss";
 
 function Transition() {

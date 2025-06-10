@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import useMutationObserver, {
-  MutationObserverOptions,
-} from "@/hooks/useMutationObserver";
+
+import type { MutationObserverOptions } from "@/hooks/useMutationObserver";
+import useMutationObserver from "@/hooks/useMutationObserver";
 interface MutateObserverProps {
   options?: MutationObserverOptions;
   onMutate: (mutations: MutationRecord[], observer: MutationObserver) => void;

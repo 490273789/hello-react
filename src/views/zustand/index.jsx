@@ -1,13 +1,13 @@
-import { useState } from "react"
-import "./index.scss"
-import useStore from "@/stores"
+import { useState } from "react";
+import "./index.scss";
+import useStore from "@/stores";
 
 const Zustand = () => {
-  console.log(useStore)
-  const age = useStore((state) => state.age)
-  const setAge = useStore((state) => state.setAge)
+  console.log(useStore);
+  const age = useStore((state) => state.age);
+  const setAge = useStore((state) => state.setAge);
 
-  const [active, setActive] = useState("1")
+  const [active, setActive] = useState("1");
 
   /** 监听状态的改变 */
   // useStore.subscribe((state) => {
@@ -20,7 +20,7 @@ const Zustand = () => {
       <div
         className={"active " + (active === "2" ? "ok" : "")}
         onClick={() => {
-          setActive("2")
+          setActive("2");
         }}
       >
         111111
@@ -32,7 +32,7 @@ const Zustand = () => {
         onChange={(e) => setAge(+e.target.value)}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Zustand
+export default Zustand;

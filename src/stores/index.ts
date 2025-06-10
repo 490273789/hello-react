@@ -1,5 +1,6 @@
-import { create } from "./zustand/index.js";
 import { logger } from "@/views/zustand/middleware";
+
+import { create } from "./zustand/index.js";
 
 interface IStore {
   name: string;

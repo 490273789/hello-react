@@ -1,4 +1,5 @@
 import { animated, useTrail } from "@react-spring/web";
+
 import styles from "../index.module.scss";
 
 const Trail = () => {

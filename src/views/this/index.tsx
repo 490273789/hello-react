@@ -1,4 +1,5 @@
-import React, { MouseEvent } from "react";
+import type { MouseEvent } from "react";
+import React from "react";
 
 class This extends React.Component<unknown> {
   constructor(props: object) {

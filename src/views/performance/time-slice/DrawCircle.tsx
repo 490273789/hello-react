@@ -1,5 +1,7 @@
-import { ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import type { ReactElement } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import React from "react";
+
 import Circle from "./Circle";
 import styles from "./index.module.scss";
 

@@ -1,6 +1,8 @@
 import { useRef } from "react";
+
 import { animated, useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
+
 import styles from "../index.module.scss";
 const pages = [
   "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
