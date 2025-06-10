@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { Suspense } from "react";
 
-import type { NonIndexRouteObject } from "react-router-dom";
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import type { NonIndexRouteObject } from "react-router";
+import { Navigate, createBrowserRouter } from "react-router";
 
 import Loading from "@/components/Loading";
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 export default function PageOne() {
   const params = useParams();

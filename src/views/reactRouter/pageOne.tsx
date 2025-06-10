@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router";
 
 export default function PageOne() {
   const [searchParams] = useSearchParams();

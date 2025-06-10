@@ -1,4 +1,4 @@
-import { useNavigate, createSearchParams, Outlet } from "react-router-dom";
+import { useNavigate, createSearchParams, Outlet } from "react-router";
 export default function RouteIndex() {
   const navigate = useNavigate();
 

@@ -1,9 +1,10 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router";
 
 import cs from "classnames";
 
-import style from "@/layout/index.module.scss";
 import { routes } from "@/routes";
+
+import style from "./index.module.scss";
 
 const Navigator = () => {
   const navigate = useNavigate();
