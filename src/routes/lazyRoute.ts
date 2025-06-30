@@ -18,12 +18,14 @@ const UiComponent = lazy(() => import(`@/views/uiComponent`));
 const Zustand = lazy(() => import(`@/views/zustand`));
 const ReactSpring = lazy(() => import(`@/views/animation/react-spring`));
 const UseGesture = lazy(() => import(`@/views/animation/use-gesture/index`));
+
 const TransitionGroup = lazy(
   () => import(`@/views/animation/transition-group/index`),
 );
 const CusComponent = lazy(() => import(`@/views/cus-component`));
 const Common = lazy(() => import(`@/views/common`));
 const TimeSlice = lazy(() => import("@/views/performance/time-slice"));
+const ContextTest = lazy(() => import("@/views/context/index"));
 
 export {
   Jsx,
@@ -47,4 +49,5 @@ export {
   CusComponent,
   Common,
   TimeSlice,
+  ContextTest,
 };

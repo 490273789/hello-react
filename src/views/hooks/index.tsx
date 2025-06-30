@@ -2,6 +2,7 @@ import type { ChangeEvent } from "react";
 import { useState } from "react";
 
 import UseStateDemo from "./useStateDemo";
+import UseRefDemo from "./useRefDemo";
 
 export default function Hooks() {
   // const cachedFn = useCallback(fn, dependencies)
@@ -21,6 +22,9 @@ export default function Hooks() {
         reset
       </div>
       <Form key={version} />
+      <div className="common_block"></div>
+      <h2>Ref的使用</h2>
+      <UseRefDemo />
     </div>
   );
 }

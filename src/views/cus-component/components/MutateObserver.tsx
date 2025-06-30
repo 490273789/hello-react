@@ -12,7 +12,7 @@ const MutateObserver: React.FC<MutateObserverProps> = (props) => {
 
   const [dom, setDom] = useState<HTMLElement>();
 
-  const childRef = useRef<HTMLElement>();
+  const childRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
     setDom(childRef.current!);

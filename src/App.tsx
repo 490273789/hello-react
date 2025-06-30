@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router";
 // import ErrorBoundary from "./components/ErrorBoundary"
 // import ErrorBoundary from "react-error-boundaries"
 import ErrorBoundary from "antd/es/alert/ErrorBoundary";
-import "cropperjs/dist/cropper.css";
+// import "cropperjs/dist/cropper.css";
 
 import routes from "@/routes";
 

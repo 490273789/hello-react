@@ -30,6 +30,7 @@ import {
   CusComponent,
   Common,
   TimeSlice,
+  ContextTest,
 } from "./lazyRoute";
 
 export interface MetaProps {
@@ -69,6 +70,11 @@ export const routes: IRouteObject[] = [
         path: "/state",
         element: <State />,
         meta: { title: "state & props" },
+      },
+      {
+        path: "/context",
+        element: <ContextTest />,
+        meta: { title: "context" },
       },
       {
         path: "/drag",
