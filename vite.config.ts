@@ -4,17 +4,11 @@ import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
-import eslint from "vite-plugin-eslint2";
 // import browserslist from 'browserslist';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    // 以命令行的方式展示出代码中的规范问题，并能够直接定位到原文件。
-    eslint(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   build: {
     outDir: "build",
     rollupOptions: {
